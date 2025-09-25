@@ -25,7 +25,7 @@ certification_images:
 ##  Peiyu Liu
 
 ###### M.S., Ph.D.
-###### [Resume](/static/files/Resume-PL-0925.pdf)      [Curriculum Vitae](/static/files/CV-PL-0925.pdf)   
+###### [Resume](files/Resume-PL-0925.pdf)      [Curriculum Vitae](files/CV-PL-0925.pdf)   
 
 
 ### About Me
