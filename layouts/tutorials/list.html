@@ -1,0 +1,55 @@
+{{ define "main" }}
+
+{{ $tutorial_pages := where .Pages ".IsNode" false }}
+{{ $count := len $tutorial_pages }}
+
+<div
+        class="tutorial-list-page post {{ with .Site.Params.doNotLoadAnimations }}
+        .
+      {{ else }}
+        animated fadeInDown
+      {{ end }}"
+>
+
+  {{ if $count }}
+  <div class="tutorials-wrap">
+    {{ range $index, $item := $tutorial_pages }}
+
+      {{ $page_link := $item.RelPermalink }}
+      {{ if eq $item.Params.tutorial_type "pdf" }}
+        {{ $page_link = $item.Params.tutorial_file | relURL }}
+      {{ end }}
+
+    <div class="tutorial-item">
+      <div class="tutorial-intro">
+        <a href="{{$page_link}}"  style="display: block;" >
+          <div class="tutorial-title">{{ $item.Title }}</div>
+          <div class="tutorial-desc">{{ $item.Params.description  | markdownify | emojify }}</div>
+          <div class="tutorial-date">{{ $item.Params.date.Format "Jan 2, 2006" }}</div>
+        </a>
+      </div>
+      <div class="tutorial-image">
+        {{ $resource := partial "functions/get_featured_image.html" $item }}
+        {{ with $resource }}
+        {{ $image := .Resize "150x" }}
+        {{ if ne $image.MediaType.SubType "gif" }}{{ $image = $image.Process "webp" }}{{ end }}
+        <a href="{{$page_link}}"  >
+          <img src="{{ $image.RelPermalink }}" height="{{ $image.Height }}" width="{{ $image.Width }}"
+               alt="{{ $item.Title }}" loading="lazy">
+        </a>
+        {{end}}
+      </div>
+    </div>
+    {{  end }}
+  </div>
+  {{  end }}
+
+</div>
+
+
+
+
+
+
+
+{{ end }}

@@ -1,0 +1,21 @@
+{{ $page:= .Page }}
+
+{{ $class := .Get "class" }}
+{{ $imageListVar := .Get "images_var" | default "grid_images" }}
+{{ $imageList := index $page.Params $imageListVar }}
+{{ $imagesLength :=  $imageList | len }}
+
+
+
+<div class="image-grid-list-s1 {{ $class }}" >
+  {{ range $index, $item := $imageList }}
+
+  <div class="s1-grid-item  " style=" " >
+
+     <div class="s1-img" > <img  src="{{ relURL $item.src }}" />  </div>
+    {{ if $item.title }}<div class="s1-img-desc">{{ $item.title }}</div> {{ end }}
+
+  </div>
+  {{ end }}
+
+</div>

@@ -1,0 +1,18 @@
+demo/
+.hugo/*
+!.hugo/version
+.hugo_build.lock
+/node_modules
+exampleSite/public/
+.DS_Store
+public/
+
+
+# IDEs
+.idea/
+
+# Hugo
+resources/
+jsconfig.json
+node_modules/
+go.sum

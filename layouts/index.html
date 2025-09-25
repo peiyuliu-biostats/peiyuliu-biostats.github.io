@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <div
+    class="post {{ with .Site.Params.doNotLoadAnimations }}
+      .
+    {{ else }}
+      animated fadeInDown
+    {{ end }}"
+  >
+    <div class="post__content home-about-page">
+      {{ .Content }}
+    </div>
+
+
+  </div>
+
+  {{ if .Params.mainSectionsTitle }}
+    <div
+      class="post {{ with .Site.Params.doNotLoadAnimations }}
+        .
+      {{ else }}
+        animated fadeInDown
+      {{ end }}"
+    >
+      <div class="post__content">
+        <h2>{{ .Params.mainSectionsTitle }}</h2>
+      </div>
+    </div>
+  {{ end }}
+
+
+{{ end }}

@@ -1,0 +1,9 @@
+{{ $page:= .Page }}
+
+{{ $class := .Get "class" }}
+{{ $imageSrc := .Get "src" }}
+
+
+<div class="short-code-image {{ $class }}" >
+    <img  src="{{ relURL $imageSrc }}" />
+</div>
