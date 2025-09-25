@@ -19,6 +19,6 @@ We are a startup team working on several iOS and android apps and looking for pa
 - Extensive knowledge or experience in deep learning, AI, large language models, and image recognition.
 - Extensive experience in Swift, Java, Javascript, and Python.
 
-If you are interested, please contact us at your convinience. We are looking forward to hearing from you!
-
 {{< image src="images/posts/call-collaborator.jpg" >}}
+
+If you are interested, please contact us at your convinience. We are looking forward to hearing from you!

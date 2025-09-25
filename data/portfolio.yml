@@ -1,12 +1,12 @@
 portfolioitems:
   # portfolio category
-  - title: Coding Projects
-    description: 'All my coding projects'
+  - title: Publications
+    description: 'All my publications'
     portfolioitem:
       - name: Project 1
         image: 'images/portfolio/code.jpg'
-        link: https://gohugo.io/
-        linktext: 'Visit project website'
+        link: /files/portfolio/p1.pdf
+        linktext: 'View pdf'
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         tags:
           - Tag 1
@@ -32,6 +32,8 @@ portfolioitems:
         tags:
           - Tag 1
           - Tag 2
+  
+  
   # portfolio category
   - title: Research
     description: 'All my research projects'
