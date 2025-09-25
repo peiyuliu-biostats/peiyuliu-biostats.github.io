@@ -1,7 +1,7 @@
 +++
 author = "Hugo Authors"
 title = "Call for Collaborators"
-date = "2025-06-08"
+date = "2022-06-08"
 description = "Call for Collaborators"
 tags = [
 ]
