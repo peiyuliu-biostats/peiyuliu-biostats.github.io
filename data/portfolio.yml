@@ -4,10 +4,10 @@ portfolioitems:
     description: 'selected publications'
     portfolioitem:
       - name: Paper 1
-        image: 'images/portfolio/clinicaltrial.png'
+        image: images/portfolio/clinicaltrial.png
         link: /files/portfolio/m1MSP.pdf
         linktext: 'View manuscript'
-        description: 'Liu, P., Hitchings, M., Rong, L., & Cummings, D. (2025). Serological markers as efficient endpoints for vector control trials: A mechanistic modeling framework for comparative evaluation with clinical and entomological endpoints'
+        description: 'Liu, P., Hitchings, M., Rong, L., & Cummings, D. (2025). Serological markers as efficient endpoints for vector control trials: A mechanistic modeling framework for comparative evaluation with clinical and entomological endpoints.'
         tags:
           - Clinical trials analysis
           - Vector-borne diseases
@@ -15,63 +15,61 @@ portfolioitems:
         status: 'Under Review'
         start: '2024'
         end: '2025'
-       
+
       - name: Paper 2
-        image: 'images/portfolio/naturc.png'
+        image: images/portfolio/naturc.png
         link: /files/portfolio/m2RSV.pdf
         linktext: 'View manuscript'
-        description: 'Santos, L. A., Castillo, A., Gustani-Buss, E., Hitchings, M. D. T., & Liu, P. (2025). Increased genomic diversification frequency of respiratory syncytial virus (RSV) types A and B in pediatric cohort in the United States after the onset of the COVID-19 pandemic'
+        description: 'Santos, L. A., Castillo, A., Gustani-Buss, E., Hitchings, M. D. T., & Liu, P. (2025). Increased genomic diversification frequency of respiratory syncytial virus (RSV) types A and B in a pediatric cohort in the United States after the onset of the COVID-19 pandemic.'
         status: 'Under Review'
         tags:
           - Respiratory syncytial virus
-          - Cox ph model
-          - Genomic 
+          - Cox PH model
+          - Genomics
         start: '2024'
         end: '2025'
 
       - name: Paper 3
-       image: 'images/portfolio/covid.png'
+        image: images/portfolio/covid.png
         link: /files/portfolio/liu21.pdf
         linktext: 'View pdf'
-        description: 'Liu, P., He S., Rong L., and Tang S.. (2020) The effect of control measures on COVID-19 transmission in Italy: Comparison with Guangdong province in China. Infectious Diseases of Poverty, 9(130):1-13.'
+        description: 'Liu, P., He, S., Rong, L., & Tang, S. (2020). The effect of control measures on COVID-19 transmission in Italy: Comparison with Guangdong province in China. Infectious Diseases of Poverty, 9(130):1–13.'
         status: 'Published'
         tags:
           - Model prediction
           - Control measures
-      
 
       - name: Paper 4
-       image: 'images/portfolio/mbe.png'
+        image: images/portfolio/mbe.png
         link: /files/portfolio/xia20.pdf
         linktext: 'View pdf'
-        description: 'Differences in how interventions coupled with effective reproduction numbers account for marked variations in COVID-19 epidemic outcomes'
+        description: 'Differences in how interventions coupled with effective reproduction numbers account for marked variations in COVID-19 epidemic outcomes.'
         status: 'Published'
         tags:
-          - Effective reproduction numbe
+          - Effective reproduction number
           - Prevention and control strategy
-        
-       - name: Paper 5
-       image: 'images/portfolio/tumor.png'
+
+      - name: Paper 5
+        image: images/portfolio/tumor.png
         link: /files/portfolio/m2-RSV.pdf
         linktext: 'View pdf'
-        description: 'Wang G., Ding W., Zhang Z., Liu, P.. (2022) Qualitative analysis of a tumor-immune model with impulsive control strategies at fixed time. Journal of Hunan Institute of Science and Technology, 35(3): 1-6.'
+        description: 'Wang, G., Ding, W., Zhang, Z., & Liu, P. (2022). Qualitative analysis of a tumor-immune model with impulsive control strategies at fixed time. Journal of Hunan Institute of Science and Technology, 35(3): 1–6.'
         status: 'Published'
         tags:
           - Pulse differential equations
           - Pulsed radioimmunotherapy
-        
+
       - name: Paper 6
-       image: 'images/portfolio/zju.png'
+        image: images/portfolio/zju.png
         link: /files/portfolio/yan23.pdf
         linktext: 'View pdf'
-        description: 'Effects of climatic factors and control measures on the spread of COVID-19. Journal of Zhejiang University (Science Edition)'
+        description: 'Effects of climatic factors and control measures on the spread of COVID-19. Journal of Zhejiang University (Science Edition).'
         status: 'Published'
         tags:
           - Climate factors
           - Poisson regression
-          - Generalized estimatiing equations
-        
-  
+          - Generalized estimating equations
+
   # portfolio category
 #  - title: Research
 #    description: 'All my research projects'
