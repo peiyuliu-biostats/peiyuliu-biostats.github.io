@@ -10,15 +10,15 @@ certification_images:
     title: "Good Clinical Practice"
 
 
-  #- src: "images/portfolio/c3.png"
-  #  title: "BERT model"
+  - src: "images/portfolio/c7.png"
+    title: "Judge, ASA DataFest (University of Florida)"
 
 
   - src: "images/portfolio/c4.png"
     title: "National Graduate Scholarship (China)"
 
 
-  - src: "images/portfolio/c5.png"
+  - src: "images/portfolio/c6.png"
     title: "Mathematical Contests in Modelling (China)"
 ---
 
@@ -34,7 +34,7 @@ I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at Universit
 
 ### Specialty
 
-- Bayesian models, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM).
+- Bayesian models, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM), etc.
 
 - KNN & Neural network models, estimation of Gradient descent & MCMC, evaluation of cross-validation & bootstrap.
 
