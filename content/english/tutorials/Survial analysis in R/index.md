@@ -1,9 +1,9 @@
 ---
-title: "Problem Set 3 R code and solutions"
-description: "Problem 3, PHC6059 ProblemSet3 RMarkdown"
-date: "2025-08-09"
+title: "Estimating the Survival Function in R"
+description: "A 2.5 hour tutorial covering Kaplan-Meier, Nelson-Aalen, and nonparametric survival estimation methods, with hands-on coding in R."
+date: "2025-09-09"
 
-tutorial_type: "pdf"
-tutorial_file: "tutorials/p3.pdf"
+tutorial_type: "html"
+tutorial_file: "tutorials/problem-set4.html"
 
 ---

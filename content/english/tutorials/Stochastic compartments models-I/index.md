@@ -1,9 +1,9 @@
 ---
-title: "Problem Set 3 R code and solutions"
-description: "Problem 3, PHC6059 ProblemSet3 RMarkdown"
-date: "2025-08-09"
+title: "Modeling stochastic SIR/SEIR Models in R"
+description: "A 1.5 hour tutorial on epidemic modeling covering final outbreak size equations, deterministic and stochastic SIR models, and SEIR dynamics with time-varying transmission."
+date: "2025-07-23"
 
-tutorial_type: "pdf"
-tutorial_file: "tutorials/p3.pdf"
+tutorial_type: "html"
+tutorial_file: "tutorials/sismid1.html"
 
 ---
