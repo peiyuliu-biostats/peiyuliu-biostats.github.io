@@ -30,17 +30,17 @@ certification_images:
 
 ### About Me
 
-I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at University of Florida with 8+ years’ experience in **statistics, biostatistics computing, differential equations, machine learning methods, clinical trial analysis and epidemiology**.
+I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at University of Florida. I have 8+ years’ of experience in **statistics, biostatistics computing, differential equations, machine learning methods, clinical trial analysis and epidemiology**.
 
 ### Specialty
 
 - Bayesian models, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM), etc.
 
-- KNN & Neural network models, estimation of Gradient descent & MCMC, evaluation of cross-validation & bootstrap.
+- KNN & Neural network models, estimation of Gradient descent & MCMC, cross-validation & bootstrap.
 
 - R, Rshiny, Matlab, SAS, SQL, Python, Maple, HTML, C++, and CSS
 
-- Stochastic and deterministic compartment models, clinical trial power and sample size calculation.
+- Compartment models, clinical trial power, and sample size calculation.
 
 ### Rshiny Applications
 
