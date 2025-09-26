@@ -71,24 +71,24 @@ reversepagetitle = true # When set to 'true', the Window Title will be reversed 
 [[socialIcons]]
 icon = "fa-brands fa-linkedin"
 title = "Linkedin"
-url = "https://www.linkedin.com/in/konstantinos-kostas-sechidis-19311657/ "
+url = "https://www.linkedin.com/in/peiyu-liu-stats/ "
 
 [[socialIcons]]
 icon = "ai ai-google-scholar"
 title = "Google Scholar"
-url = "https://scholar.google.com/citations?user=DBKK9IsAAAAJ&hl=en"
+url = "https://scholar.google.com/citations?user=O6KFoOUAAAAJ&hl=en&authuser=1"
 
 
 [[socialIcons]]
 icon = " fa-brands  fa-orcid"
 title = "ORCID"
-url = "https://www.researchgate.net/profile/Xinlei-Deng"
+url = "https://orcid.org/my-orcid?orcid=0009-0009-2809-4962"
 
 
 [[socialIcons]]
 icon = "fa-brands fa-github"
 title = "GitHub"
-url = "https://github.com/lxndrblz/anatole/"
+url = "https://github.com/peiyuliu-biostats"
 
 #[[socialIcons]]
 #icon = "fa-brands fa-instagram"

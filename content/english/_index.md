@@ -34,7 +34,7 @@ I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at Universit
 
 ### Specialty
 
-- Bayesian models, regressions, survival models (KM, CoxPh, AFT), longitudinal (GEE, GLMM), and causal inference.
+- Bayesian models, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM).
 
 - KNN & Neural network models, estimation of Gradient descent & MCMC, evaluation of cross-validation & bootstrap.
 
