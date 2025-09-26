@@ -35,26 +35,26 @@ portfolioitems:
   
   
   # portfolio category
-  - title: Research
-    description: 'All my research projects'
-    portfolioitem:
-      - name: Project 1
-        image: 'images/portfolio/code.jpg'
-        description: 'This project does not have a link attribute'
-        tags:
-          - Tag 1
-          - Tag 2
-      - name: Project 2
-        image: 'images/portfolio/code.jpg'
-        link: https://gohugo.io/
-        description: 'You can click on [**this link**](#codingprojects) to scroll to my Coding Projects portfolio'
-        tags:
-          - Tag 1
-          - Tag 2
-      - name: Project 3
-        image: 'images/portfolio/code.jpg'
-        link: https://gohugo.io/
-        description: 'A description'
-        tags:
-          - Tag 1
-          - Tag 2
+#  - title: Research
+#    description: 'All my research projects'
+#    portfolioitem:
+#      - name: Project 1
+#        image: 'images/portfolio/code.jpg'
+#        description: 'This project does not have a link attribute'
+#        tags:
+#          - Tag 1
+#          - Tag 2
+#      - name: Project 2
+#        image: 'images/portfolio/code.jpg'
+#        link: https://gohugo.io/
+#        description: 'You can click on [**this link**](#codingprojects) to scroll to my Coding Projects portfolio'
+#        tags:
+#          - Tag 1
+#          - Tag 2
+#      - name: Project 3
+#        image: 'images/portfolio/code.jpg'
+#        link: https://gohugo.io/
+#        description: 'A description'
+#       tags:
+#          - Tag 1
+#          - Tag 2
