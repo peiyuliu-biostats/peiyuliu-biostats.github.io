@@ -17,7 +17,7 @@ portfolioitems:
         end: '2025'
 
       - name: Paper 2
-        image: images/portfolio/naturc.png
+        image: images/portfolio/naturec.png
         link: /files/portfolio/m2RSV.pdf
         linktext: 'View manuscript'
         description: 'Santos, L. A., Castillo, A., Gustani-Buss, E., Hitchings, M. D. T., & Liu, P. (2025). Increased genomic diversification frequency of respiratory syncytial virus (RSV) types A and B in a pediatric cohort in the United States after the onset of the COVID-19 pandemic.'
