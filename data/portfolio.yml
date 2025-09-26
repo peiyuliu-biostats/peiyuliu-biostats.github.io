@@ -30,7 +30,7 @@ portfolioitems:
         end: '2025'
 
       - name: Paper 3
-        image: images/portfolio/covid.png
+        image: images/portfolio/bmc.png
         link: /files/portfolio/liu21.pdf
         linktext: 'View pdf'
         description: 'Liu, P., He, S., Rong, L., & Tang, S. (2020). The effect of control measures on COVID-19 transmission in Italy: Comparison with Guangdong province in China. Infectious Diseases of Poverty, 9(130):1–13.'
