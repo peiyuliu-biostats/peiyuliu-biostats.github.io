@@ -5,7 +5,7 @@ portfolioitems:
     portfolioitem:
       - name: Paper 1
         image: 'images/portfolio/clinicaltrial.png'
-        link: /files/portfolio/m1-MSP.pdf
+        link: /files/portfolio/m1MSP.pdf
         linktext: 'View manuscript'
         description: 'Liu, P., Hitchings, M., Rong, L., & Cummings, D. (2025). Serological markers as efficient endpoints for vector control trials: A mechanistic modeling framework for comparative evaluation with clinical and entomological endpoints'
         tags:
@@ -18,7 +18,7 @@ portfolioitems:
        
       - name: Paper 2
         image: 'images/portfolio/naturc.png'
-        link: /files/portfolio/m2-RSV.pdf
+        link: /files/portfolio/m2RSV.pdf
         linktext: 'View manuscript'
         description: 'Santos, L. A., Castillo, A., Gustani-Buss, E., Hitchings, M. D. T., & Liu, P. (2025). Increased genomic diversification frequency of respiratory syncytial virus (RSV) types A and B in pediatric cohort in the United States after the onset of the COVID-19 pandemic'
         status: 'Under Review'
