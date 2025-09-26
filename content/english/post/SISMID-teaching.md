@@ -1,7 +1,7 @@
 +++
 author = "Hugo Authors"
 title = "Teaching at SISMID 2025"
-date = "2025-22-07"
+date = "2025-07-22"
 description = "Teaching at SISMID 2025"
 tags = [
 ]

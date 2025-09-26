@@ -1,7 +1,7 @@
 +++
 author = "Hugo Authors"
 title = "ASA DataFest at UF"
-date = "2025-30-03"
+date = "2025-03-30"
 description = "ASA DataFest 2025 at UF"
 tags = [
 ]
