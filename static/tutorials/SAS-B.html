@@ -11,9 +11,9 @@
 
 <meta name="author" content="Peiyu Liu" />
 
-<meta name="date" content="2025-08-20" />
+<meta name="date" content="2025-08-24" />
 
-<title>Reading Raw Data in SAS</title>
+<title>PROC SQL operations in SAS</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -351,318 +351,515 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Reading Raw Data in SAS</h1>
+<h1 class="title toc-ignore">PROC SQL operations in SAS</h1>
 <h4 class="author">Peiyu Liu</h4>
-<h4 class="date">2025-08-20</h4>
+<h4 class="date">2025-08-24</h4>
 
 </div>
 
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>The DATA step is the heart of SAS programming, and a crucial first
-step is correctly reading your raw data. SAS provides a powerful and
-flexible INPUT statement to handle virtually any kind of raw text file,
-from simple delimited files to complex, unstructured formats.</p>
-<p>This tutorial provides a guide to the most common methods for reading
-raw data in SAS. We will cover five main input styles and then explore
-advanced options for handling more complex files.</p>
+<p>A practical playbook for common PROC SQL operations in SAS. It covers
+essential topics from basic SELECT statements to more complex JOINs,
+GROUP BY clauses, and subqueries. Each section includes a clear example
+based on a consistent set of sample data.</p>
 </div>
-<div id="list-input" class="section level2">
-<h2>1. List Input</h2>
-<p>Use When: You are reading simple, space- or delimiter-separated data
-where fields are in a fixed order and contain no embedded spaces.</p>
-<p>List input is the simplest method. SAS scans the data line, looking
-for values separated by one or more delimiters (by default, a space),
-and assigns them to the variables listed in the INPUT statement.</p>
+<div id="sample-data-setup" class="section level2">
+<h2>0. Sample Data Setup</h2>
+<p>The following DATA steps create the six sample tables used throughout
+this tutorial: customers, orders, order_items, products, depts, and
+employees. You can run this code first to create the datasets in your
+WORK library.</p>
 <pre class="sas"><code>
-/* demo_list_input.sas */
+/* Customers, Orders, Order Items, Products */
 
-data temps;
+data work.customers;
 
-  input city $ high low;
+  input cust_id name $ region $;
 
   datalines;
 
-NewYork 85 68
+101 Alice East
 
-Chicago 78 62
+102 Bob West
+
+103 Cara East
+
+104 Dan North
 
 ;
 
 run;
 
-proc print data=temps;
+data work.orders;
 
-run;
-</code></pre>
-<p>Explanation: SAS reads “NewYork” into the character variable city,
-“85” into high, and “68” into low.</p>
-</div>
-<div id="column-input" class="section level2">
-<h2>2. Column Input</h2>
-<p>Use When: Your data is in fixed columns, meaning each variable is
-found in the exact same position on every line. This method is excellent
-for data with embedded spaces in character fields.</p>
-<p>With column input, you specify the exact starting and ending column
-for each variable.</p>
-<pre class="sas"><code>
-/* demo_column_input.sas */
+  input order_id cust_id order_date :date9. channel $;
 
-data census;
-
-  input state $ 1-12 pop 13-18;
+  format order_date date9.;
 
   datalines;
 
-New York    5082
+1001 101 01JAN2025 Web
 
-New Jersey  2590
+1002 101 02JAN2025 Store
+
+1003 102 02JAN2025 Web
+
+1004 103 03JAN2025 Web
 
 ;
 
 run;
 
-proc print data=census;
+data work.order_items;
 
-run;
-</code></pre>
-<p>Explanation: SAS reads characters from columns 1 through 12 into the
-state variable and characters from 13 through 18 into the pop
-variable.</p>
-</div>
-<div id="formatted-input" class="section level2">
-<h2>3. Formatted Input</h2>
-<p>Use When: Your data is in fixed columns, but requires special
-handling to be read correctly, such as dates, currency, or numbers with
-commas.</p>
-<p>Formatted input uses informs to tell SAS how to interpret the data in
-specified columns. It is often combined with pointer controls
-(<code>@n</code>) to specify the starting column.</p>
-<pre class="sas"><code>
-/* demo_formatted_input.sas */
-
-data payroll;
-
-  input @1  emp_id     $6.
-
-        @8  hire_date  mmddyy10.
-
-        @19 salary     dollar8.;
+  input order_id product_id qty price;
 
   datalines;
 
-E10001 07/15/2019$75,200
+1001 10 1 199.99
 
-E10002 11/02/2020$88,500
+1001 11 2 19.99
+
+1002 11 1 19.99
+
+1003 12 3 49.00
+
+1004 10 1 199.99
 
 ;
 
 run;
 
-proc print data=payroll;
+data work.products;
+
+  input product_id category $ product_name $;
+
+  datalines;
+
+10 Electronics PhoneX
+
+11 Accessories CaseA
+
+12 Home Kettle
+
+;
+
+run;
+
+/* Employees &amp; Departments for GROUP BY examples */
+
+data work.depts;
+
+  input dept_id dept_name $;
+
+  datalines;
+
+1 IT
+
+2 HR
+
+3 Sales
+
+;
+
+run;
+
+data work.employees;
+
+  input emp_id dept_id salary hire_date :date9.;
+
+  format hire_date date9.;
+
+  datalines;
+
+9001 1 68000 01JAN2020
+
+9002 1 75000 15JUN2021
+
+9003 2 52000 12DEC2019
+
+9004 3 83000 05MAY2022
+
+9005 3 79000 08AUG2023
+
+;
 
 run;
 </code></pre>
-<p>Explanation:</p>
+<hr />
+</div>
+<div id="select-basics-fields-aliases-where" class="section level2">
+<h2>1. SELECT Basics: Fields, Aliases, &amp; WHERE</h2>
+<p><strong>Goal:</strong> Select specific fields, rename them with
+aliases, and filter rows with a WHERE clause.</p>
+<pre class="sas"><code>
+proc sql;
+
+  select cust_id as CustomerID,
+
+         name    as CustomerName,
+
+         region
+
+  from work.customers
+
+  where region in (&#39;East&#39;,&#39;West&#39;)
+
+  order by region, CustomerName;
+
+quit;
+</code></pre>
+<p><strong>Key Concepts:</strong> field list, alias (AS), WHERE, ORDER
+BY.</p>
+<hr />
+</div>
+<div id="join-combining-multiple-tables" class="section level2">
+<h2>2. JOIN: Combining Multiple Tables</h2>
+<p><strong>Goal:</strong> Join tables together horizontally. Use the ON
+clause to specify the join keys. Start with two tables and scale to
+three or more as needed.</p>
+<div id="inner-join-returns-only-matching-rows" class="section level3">
+<h3>2.1 Inner Join (Returns only matching rows)</h3>
+<pre class="sas"><code>
+proc sql;
+
+  create table work.order_detail as
+
+    select o.order_id,
+
+           c.name as customer,
+
+           o.order_date,
+
+           oi.qty*oi.price as line_amount
+
+    from work.orders as o
+
+      inner join work.customers as c on o.cust_id = c.cust_id
+
+      inner join work.order_items as oi on o.order_id = oi.order_id;
+
+      /* inner join keeps only rows that match both join keys */
+
+quit;
+</code></pre>
+</div>
+<div id="left-join-keeps-all-rows-from-the-left-table" class="section level3">
+<h3>2.2 Left Join (Keeps all rows from the left table)</h3>
+<pre class="sas"><code>
+proc sql;
+
+  create table work.customer_last_order as
+
+    select c.cust_id,
+
+           c.name,
+
+           max(o.order_date) as last_order format=date9.
+
+    from work.customers as c
+
+      left join work.orders as o on c.cust_id = o.cust_id
+
+    group by c.cust_id, c.name;
+
+quit;
+</code></pre>
+<hr />
+</div>
+</div>
+<div id="group-by-aggregates" class="section level2">
+<h2>3. GROUP BY &amp; Aggregates</h2>
+<p><strong>Goal:</strong> Aggregate data using functions like SUM, AVG,
+or COUNT. Group rows with GROUP BY and filter the aggregated results
+with HAVING.</p>
+<p><strong>Example 1: Revenue per order</strong></p>
+<pre class="sas"><code>
+/* Revenue per order */
+
+proc sql;
+
+  create table work.order_revenue as
+
+    select o.order_id,
+
+           o.cust_id,
+
+           sum(oi.qty*oi.price) as order_revenue format=dollar12.2
+
+    from work.orders as o
+
+      left join work.order_items as oi on o.order_id = oi.order_id
+
+    group by o.order_id, o.cust_id
+
+    having calculated order_revenue &gt; 0; /* having filters after aggregation */
+
+quit;
+</code></pre>
+<p><strong>Example 2: Total revenue and order count per
+customer</strong></p>
+<pre class="sas"><code>
+/* Revenue per customer */
+
+proc sql;
+
+  create table work.customer_revenue as
+
+    select o.cust_id,
+
+           count(distinct o.order_id) as orders,
+
+           sum(oi.qty*oi.price) as total_revenue format=dollar12.2
+
+    from work.orders as o
+
+      left join work.order_items as oi on o.order_id = oi.order_id
+
+    group by o.cust_id
+
+    /* HAVING example: only customers with &gt;= 2 lines (sum of qty) */
+
+    having sum(oi.qty) &gt;= 2;
+
+quit;
+</code></pre>
+<p><strong>Key Concepts:</strong></p>
+<p>CALCULATED lets you re-use computed columns in the same query (e.g.,
+in HAVING or ORDER BY).</p>
+<p>HAVING applies after* GROUP BY, whereas WHERE filters before.</p>
+</div>
+<div id="case-when-creating-derived-fields" class="section level2">
+<h2>4. CASE WHEN: Creating Derived Fields</h2>
+<p><strong>Goal:</strong> Create new fields, labels, or buckets based on
+conditional logic.</p>
+<pre class="sas"><code>
+proc sql;
+
+  select e.emp_id,
+
+         e.salary,
+
+         case
+
+           when salary &gt;= 80000 then &#39;High&#39;
+
+           when salary &gt;= 60000 then &#39;Mid&#39;
+
+           else &#39;Low&#39;
+
+         end as salary_band,
+
+         case
+
+           when intck(&#39;year&#39;, hire_date, today()) &gt;= 3 then &#39;Tenured&#39;
+
+           else &#39;New&#39;
+
+         end as tenure_flag
+
+  from work.employees as e
+
+  order by salary desc;
+
+quit;
+</code></pre>
+<p>Tip: CASE can be used in SELECT, UPDATE, INSERT, and even inside
+aggregate functions if needed.</p>
+<hr />
+</div>
+<div id="subqueries-in-exists-scalar-having" class="section level2">
+<h2>5. Subqueries: IN, EXISTS, Scalar, &amp; HAVING</h2>
+<p><strong>Goal:</strong> Use a query inside another query to compare
+against a set, check for existence, or compute a single value.</p>
+<div id="in-set-membership" class="section level3">
+<h3>5.1 IN (Set membership)</h3>
+<pre class="sas"><code>
+/* Customers who have at least one Web order */
+
+proc sql;
+
+  select distinct c.cust_id, c.name
+
+  from work.customers c
+
+  where c.cust_id in (
+
+    select cust_id from work.orders where channel=&#39;Web&#39;
+
+  );
+
+quit;
+</code></pre>
+</div>
+<div id="exists-faster-for-existence-checks" class="section level3">
+<h3>5.2 EXISTS (Faster for existence checks)</h3>
+<pre class="sas"><code>
+/* Customers with at least one order item priced &gt; 100 */
+
+proc sql;
+
+  select c.cust_id, c.name
+
+  from work.customers c
+
+  where exists (
+
+    select 1
+
+    from work.orders o
+
+      inner join work.order_items oi on o.order_id = oi.order_id
+
+    where o.cust_id = c.cust_id and oi.price &gt; 100
+
+  );
+
+quit;
+</code></pre>
+</div>
+<div id="scalar-subquery-in-select-compute-one-value" class="section level3">
+<h3>5.3 Scalar Subquery in SELECT (Compute one value)</h3>
+<pre class="sas"><code>
+/* Compare each employee&#39;s salary to the overall average salary */
+
+proc sql;
+
+  select emp_id,
+
+         salary,
+
+         (select avg(salary) from work.employees) as avg_salary,
+
+         case
+
+           when salary &gt;= (select avg(salary) from work.employees) then &#39;&gt;=Avg&#39;
+
+           else &#39;&lt;Avg&#39;
+
+         end as vs_avg
+
+  from work.employees;
+
+quit;
+</code></pre>
+</div>
+<div id="subquery-in-having-filter-aggregated-groups" class="section level3">
+<h3>5.4 Subquery in HAVING (Filter aggregated groups)</h3>
+<pre class="sas"><code>
+/* Keep departments whose total salary &gt; overall department average total */
+
+proc sql;
+
+  create table work.dept_pay as
+
+    select d.dept_id,
+
+           d.dept_name,
+
+           sum(e.salary) as dept_total
+
+    from work.depts d
+
+      left join work.employees e on d.dept_id = e.dept_id
+
+    group by d.dept_id, d.dept_name
+
+    having calculated dept_total &gt; (
+
+      select avg(dept_sum) from (
+
+        select sum(salary) as dept_sum from work.employees group by dept_id
+
+      )
+
+    );
+
+quit;
+</code></pre>
+</div>
+</div>
+<div id="all-in-one-query-example" class="section level2">
+<h2>6. All-in-One Query Example</h2>
+<p><strong>Goal:</strong> A compact demonstration combining JOIN, SELECT
+with aliases, CASE, GROUP BY, HAVING, and a scalar subquery.</p>
+<pre class="sas"><code>
+proc sql;
+
+  /* Average revenue per customer (scalar subquery) */
+
+  %let avg_cust_rev = (select avg(total_rev) from
+
+    (select sum(oi2.qty*oi2.price) as total_rev
+
+     from work.orders o2
+
+       inner join work.order_items oi2 on o2.order_id = oi2.order_id
+
+     group by o2.cust_id)
+
+  );
+
+  create table work.customer_summary as
+
+    select c.cust_id as customer_id,
+
+           c.name as customer_name,
+
+           c.region,
+
+           count(distinct o.order_id) as order_cnt,
+
+           sum(oi.qty*oi.price) as revenue format=dollar12.2,
+
+           case when calculated revenue &gt;= &amp;avg_cust_rev
+
+             then &#39;Above_Avg&#39; else &#39;Below_Avg&#39;
+
+           end as value_band
+
+    from work.customers c
+
+      left join work.orders o on c.cust_id = o.cust_id
+
+      left join work.order_items oi on o.order_id = oi.order_id
+
+    group by c.cust_id, c.name, c.region
+
+    having calculated revenue &gt; 0
+
+    order by revenue desc, order_cnt desc;
+
+quit;
+</code></pre>
+<div id="why-it-matters" class="section level3">
+<h3>Why it Matters</h3>
 <ul>
-<li><p><span class="citation">@1</span> emp_id $6. reads a 6-character
-string for emp_id starting at column 1.</p></li>
-<li><p><span class="citation">@8</span> hire_date mmddyy10. moves to
-column 8 and reads the date using the mmddyy10. informat.</p></li>
-<li><p><span class="citation">@19</span> salary dollar8. moves to column
-19 and reads the currency value using the dollar8. informat.</p></li>
+<li><p>JOINs connect customers -&gt; orders -&gt; lines.</p></li>
+<li><p>CALCULATED allows re-use of revenue for arithmetic on joined
+rows.</p></li>
+<li><p>CASE buckets customers based on a scalar subquery
+average.</p></li>
+<li><p>GROUP BY summarizes data to the customer level; HAVING keeps only
+customers with positive revenue.</p></li>
+<li><p>ORDER BY produces a clean, sorted final report.</p></li>
 </ul>
 </div>
-<div id="named-input" class="section level2">
-<h2>4. Named Input</h2>
-<p>Use When: The data file consists of name=value pairs. The order of
-these pairs can vary from line to line.</p>
-<p>This method is useful for configuration files or log files where data
-is explicitly labeled.</p>
-<pre class="sas"><code>
-/* demo_named_input.sas */
-
-data games;
-
-  input name=$ score1= score2=;
-
-  datalines;
-
-name=Alice score1=120 score2=115
-
-name=Bob   score1=132 score2=127
-
-;
-
-run;
-
-proc print data=games;
-
-run;
-</code></pre>
-<p>Explanation: SAS scans the line for the variable name followed by an
-equals sign (<code>=</code>) and then reads the corresponding value.</p>
 </div>
-<div id="mixed-input" class="section level2">
-<h2>5. Mixed Input</h2>
-<p>Use When: Your data file has a complex layout that combines different
-styles, such as some fixed-column fields and some list-style fields.</p>
-<p>You can freely combine list, column, and formatted input styles in a
-single INPUT statement to match messy data files.</p>
-<pre class="sas"><code>
-/* demo_mixed_input.sas */
-
-data roster;
-
-  input idno 1-3
-
-        name $  6-25
-
-        team $ 26-31
-
-        startwght endwght;
-
-  datalines;
-
-023 David Shaw         red    189 165
-
-049 Amelia Serrano     yellow 189 165
-
-;
-
-run;
-
-proc print data=roster;
-
-run;
-</code></pre>
-<p>Explanation:</p>
-<ul>
-<li><p>idno is read with column input (1-3).</p></li>
-<li><p>name and team are also read with column input.</p></li>
-<li><p>startwght and endwght are read with simple list input after the
-column-defined variables.</p></li>
-</ul>
-</div>
-<div id="advanced-techniques-for-complex-files" class="section level2">
-<h2>Advanced Techniques for Complex Files</h2>
-<div id="common-infile-statement-options" class="section level3">
-<h3>Common INFILE Statement Options</h3>
-<p>When reading from an external file, the INFILE statement offers many
-options to control the reading process.</p>
-<pre class="sas"><code>
-/* demo_infile_options.sas */
-
-/* This code assumes an external file exists and is for demonstration only */
-
-filename raw temp;
-
-data null;
-
-  file raw;
-
-  put &#39;CUST_ID,DEPARTMENT&#39;;
-
-  put &#39;C100,,&quot;Sales&quot;&#39;;
-
-run;
-
-data mydata;
-
-  /* DSD: Handles commas, consecutive delimiters, and quoted values */
-
-  /* DLM: Specifies the delimiter */
-
-  /* MISSOVER: Prevents reading a new line if data is missing at the end */
-
-  /* FIRSTOBS=2: Skips the header row and starts reading from the 2nd line */
-
-  infile raw dsd dlm=&#39;,&#39; missover firstobs=2;
-
-  input cust_id : $6. dept : $20.;
-
-run;
-
-proc print data=mydata;
-
-run;
-</code></pre>
-<ul>
-<li><p>DLM=: Specifies the delimiter (e.g., DLM=‘,’ for CSV, DLM=’09’x
-for tab).</p></li>
-<li><p>DSD: A powerful option that changes how delimiters work. It
-treats consecutive delimiters as a missing value and allows you to read
-values enclosed in quotation marks.</p></li>
-<li><p>MISSOVER: If a line is shorter than expected, this option assigns
-missing values to the remaining variables without jumping to the next
-line.</p></li>
-<li><p>FIRSTOBS=n: Tells SAS to start reading at line number n, which is
-useful for skipping header rows.</p></li>
-<li><p>LRECL=: Specifies the logical record length. Use this to increase
-the input buffer size if your data lines are very long and getting
-truncated.</p></li>
-</ul>
-</div>
-<div id="pointer-controls-line-holding" class="section level3">
-<h3>Pointer Controls &amp; Line Holding</h3>
-<p>Pointer controls give you precise command over where SAS reads on a
-line and which line it reads from.</p>
-<ul>
-<li><p>Column Pointers: <span class="citation">@n</span> moves to column
-n; +n moves forward n columns.</p></li>
-<li><p>Line Pointers: / moves to the next input line; #n moves to line
-number n within the current record.</p></li>
-<li><p>Line Hold Specifiers: A trailing @ holds the current input line
-for the next INPUT statement. A double trailing @@ holds the line across
-multiple iterations of the DATA step, allowing you to read multiple
-observations from a single input line.</p></li>
-</ul>
-<pre class="sas"><code>
-/* demo_pointer_controls.sas */
-
-data survey;
-
-  input @1 id 3. +1 age 2. /
-
-        height 3.;
-
-  datalines;
-
-101 29
-
-174
-
-102 30
-
-168
-
-;
-
-run;
-
-proc print data=survey;
-
-run;
-</code></pre>
-</div>
-</div>
-<div id="quick-guide-which-method-should-i-choose" class="section level2">
-<h2>Quick Guide: Which Method Should I Choose?</h2>
-<ul>
-<li><p>CSV / Tab-Delimited Files: Use List Input with the DSD and DLM=
-options on the INFILE statement. Use MISSOVER to handle short
-lines.</p></li>
-<li><p>Fixed-Width Data (e.g., old mainframe files): Use Column Input or
-Formatted Input. This is the most reliable way to handle data where
-alignment is key.</p></li>
-<li><p>Data with Dates, Times, or Currency: Use Formatted Input with the
-appropriate informats (e.g., mmddyy10., dollar8.).</p></li>
-<li><p>Key-Value Pairs: Use Named Input.</p></li>
-<li><p>Complex or Mixed-Format Files: Use Mixed Input, combining pointer
-controls (<code>@</code>, /) with different input styles in a single
-INPUT statement.</p></li>
-</ul>
+<div id="cheat-sheet-summary" class="section level2">
+<h2>Cheat-Sheet Summary</h2>
+<p><strong><code>SELECT</code> + WHERE</strong>: Filter early, alias
+columns for clarity.</p>
+<p><strong><code>JOIN</code></strong>: INNER = matches only; LEFT = keep
+all from left. Build up from two tables.</p>
+<p><strong><code>GROUP BY</code> + HAVING</strong>: Aggregate data, then
+filter the resulting groups.</p>
+<p><strong><code>CASE</code></strong>: Derive business labels and flags
+in-line.</p>
+<p><strong>Subqueries</strong>: Use IN / EXISTS for membership/existence
+checks; use a scalar subquery for single value comparisons.</p>
 </div>
 
 
