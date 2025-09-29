@@ -30,15 +30,15 @@ certification_images:
 
 ### About Me
 
-I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at University of Florida. I have 8+ years’ of experience in **statistics, biostatistics computing, differential equations, machine learning methods, clinical trial analysis and epidemiology**.
+I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at University of Florida. I have 7+ years’ of experience in **statistics, machine learning methods, biostatistics computing, differential equations, clinical trial analysis and epidemiology**.
 
 ### Specialty
 
 - Bayesian models, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM), etc.
 
-- KNN & Neural network models, estimation of Gradient descent & MCMC, cross-validation & bootstrap.
+- KNN & Neural network models & GAM, estimation of Gradient descent & MCMC, cross-validation & bootstrap.
 
-- R, Rshiny, Matlab, SAS, SQL, Python, Maple, HTML, C++, and CSS
+- R, Rshiny, SAS, SQL, Python, Matlab,Maple, HTML, C++, and CSS
 
 - Compartment models, clinical trial power, and sample size calculation.
 
@@ -46,9 +46,10 @@ I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at Universit
 
 - [Predictive modelling comparing dengue trial designs: antibody vs. infection endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
+- [US Weather Data: Visualization, K-Means Clustering, and Machine Learning Forecasting (Click to Open)](https://peiyuliu.shinyapps.io/us-weather-analysis/)
+
 - [SIR Models Estimation: Least Squares vs. Bootstrap vs. MCMC (Click to Open)](https://peiyuliu.shinyapps.io/sir-estimation-comparison/)
 
-- [US Weather Data: Visualization, K-Means Clustering, and Machine Learning Forecasting (Click to Open)](https://peiyuliu.shinyapps.io/us-weather-analysis/)
 
 ### Certifications
 
