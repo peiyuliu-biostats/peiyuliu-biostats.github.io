@@ -5,14 +5,14 @@ date: 2019-03-08
 description: Contact Page
 contact: true
 
-email: pyliu996@gmail.com
-address: 19 th Ave
+email: peiyu.liu.stats@gmail.com
+address: Gainesville, FL, USA
 
 ---
 
 
-You can reach out to me using the form below.
+You can reach out to me using the mail below.
 
-This form is connect to my email and I will respond to you ASAP.
+I will respond to you ASAP.
 
 I am happy to connect! Let me know if you like to chat.
