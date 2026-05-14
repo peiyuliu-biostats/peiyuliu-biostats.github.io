@@ -34,7 +34,7 @@ I'm a **biostatistician** and **Biostatistics Ph.D Candidate** at University of 
 
 ### Specialty
 
-- Bayesian models, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM), etc.
+- Bayesian hierarchical, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM), etc.
 
 - KNN & Neural network models & GAM, estimation of Gradient descent & MCMC, cross-validation & bootstrap.
 
@@ -43,6 +43,8 @@ I'm a **biostatistician** and **Biostatistics Ph.D Candidate** at University of 
 - Compartment models, clinical trial power, and sample size calculation.
 
 ### Rshiny Applications
+
+- [Oncology Dose Optimization (Clinical Utility Score framework, exposure-response modeling, survival analysis) (Click to Open)](https://peiyuliu.shinyapps.io/ontology-cus-pkboin-v1/)
 
 - [Predictive modelling comparing dengue trial designs: antibody vs. infection endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
