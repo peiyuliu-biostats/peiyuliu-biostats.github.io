@@ -25,12 +25,12 @@ certification_images:
 ##  Peiyu Liu
 
 ###### M.S., Ph.D.
-###### [Resume](files/Resume-PL-0925.pdf)      [Curriculum Vitae](files/CV-PL-0925.pdf)   
+###### [Resume](files/Peiyu_Liu_CV.pdf)      [Curriculum Vitae](files/CV-PL-0925.pdf)   
 
 
 ### About Me
 
-I'm a **biostatistician** and **3rd yr Biostatistics Ph.D student** at University of Florida. I have 7+ years’ of experience in **statistics, machine learning methods, biostatistics computing, differential equations, clinical trial analysis and epidemiology**.
+I'm a **biostatistician** and ** Biostatistics Ph.D Candidate** at University of Florida. I have 7+ years’ of experience in **statistics, machine learning methods, biostatistics computing, differential equations, clinical trial analysis and epidemiology**.
 
 ### Specialty
 
