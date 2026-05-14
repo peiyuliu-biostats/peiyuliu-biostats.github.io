@@ -30,7 +30,7 @@ certification_images:
 
 ### About Me
 
-I'm a **biostatistician** and ** Biostatistics Ph.D Candidate** at University of Florida. I have 7+ years’ of experience in **statistics, machine learning methods, biostatistics computing, differential equations, clinical trial analysis and epidemiology**.
+I'm a **biostatistician** and **Biostatistics Ph.D Candidate** at University of Florida. I have 7+ years’ of experience in **statistics, machine learning methods, biostatistics computing, differential equations, clinical trial analysis and epidemiology**.
 
 ### Specialty
 
