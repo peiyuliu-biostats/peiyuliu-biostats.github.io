@@ -1,0 +1,55 @@
+# Website content map
+
+Use this page as the editing index. The paths below are the source of truth;
+do not edit generated HTML under `public/`.
+
+## Left sidebar
+
+| Visible item | Edit here |
+| --- | --- |
+| Name, title, biography line, email | `config/_default/params.toml` |
+| Profile image | `static/images/avatar.png` |
+| LinkedIn, Google Scholar, ORCID, GitHub | `config/_default/params.toml` under `[[socialIcons]]` |
+
+## Top navigation tabs
+
+The tab names, order, and URLs are all in `config/_default/menus.en.toml`.
+
+| Tab | Page content | Related images/files |
+| --- | --- | --- |
+| About | `content/english/_index.md` | `static/images/portfolio/`, `static/files/` |
+| Posts | One Markdown file per post in `content/english/post/` | `static/images/posts/` |
+| Portfolio | `data/portfolio/publications.yml` | `static/images/portfolio/`, `static/files/portfolio/` |
+| Tutorials | One folder per tutorial in `content/english/tutorials/` | Featured image beside its `index.md`; source document in `static/tutorials/` |
+| Contact | `content/english/contact.md` | — |
+
+## Adding content
+
+### Add a post
+
+1. Copy an existing file in `content/english/post/`.
+2. Change its title, date, description, and body.
+3. Put its image in `static/images/posts/` and reference it as
+   `images/posts/your-image.jpg`.
+
+### Add a tutorial
+
+1. Create a clearly named folder under `content/english/tutorials/`.
+2. Add `index.md` and `featured.png` to that folder.
+3. Put the HTML/PDF tutorial in `static/tutorials/` and set `tutorial_file` in
+   `index.md`.
+
+### Add or update a publication
+
+1. Edit `data/portfolio/publications.yml`.
+2. Put the cover image in `static/images/portfolio/`.
+3. Put the manuscript PDF in `static/files/portfolio/`.
+4. Keep browser URLs beginning with `/files/portfolio/` or
+   `/images/portfolio/`; do not include `static` in those URLs.
+
+## Architecture boundary
+
+- `content`, `data`, and `static` contain material you update.
+- `layouts` and `assets/scss` control presentation.
+- `themes/anatole` is upstream theme code.
+- `public` and `resources` are generated and may be replaced by a future build.

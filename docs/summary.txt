@@ -1,0 +1,23 @@
+# Peiyu Liu — personal website
+
+This repository is a Hugo website using the Anatole theme. For routine updates,
+start with **[docs/CONTENT_MAP.md](docs/CONTENT_MAP.md)**. It maps every visible
+tab to the exact file or folder that controls it.
+
+## Daily editing areas
+
+- `content/english/` — text shown on pages
+- `data/portfolio/` — Portfolio lists and metadata
+- `static/images/` — images referenced by content
+- `static/files/` — PDFs and downloadable files
+- `config/_default/menus.en.toml` — top navigation tabs
+- `config/_default/params.toml` — left sidebar/profile
+
+## Site implementation (edit less often)
+
+- `layouts/` — this site's custom page templates
+- `assets/scss/custom.scss` — this site's custom styling
+- `themes/anatole/` — third-party theme source; avoid editing directly
+
+Generated folders such as `public/` and `resources/` are build output, not
+content sources.

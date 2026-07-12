@@ -1,0 +1,290 @@
+PEIYU LIU PERSONAL WEBSITE
+FILE ORGANIZATION AND PORTFOLIO REDESIGN NOTES
+Date: July 12, 2026
+
+
+1. ORIGINAL OBJECTIVES
+======================
+
+The website is a Hugo personal website using the Anatole theme. The original
+objectives were:
+
+1. Make the repository easier to understand and maintain without changing the
+   current visible website content.
+2. Make it easy to identify which file controls each main navigation tab and
+   each content area.
+3. Improve the Portfolio page while preserving the existing site's visual
+   theme.
+4. Place Coding Projects first, followed by a Publications list.
+5. Let each coding project open a detailed page containing its workflow,
+   explanation, tutorial, and code.
+6. Give each publication direct PDF and article-page links.
+
+
+2. CURRENT WEBSITE ARCHITECTURE
+===============================
+
+Framework:
+- Hugo static website
+- Anatole theme
+
+Main editing locations:
+- content/english/                  Page and post text
+- data/portfolio/                  Portfolio data
+- static/images/                   Website images
+- static/files/                    PDFs, CVs, and downloadable files
+- config/_default/menus.en.toml     Main navigation
+- config/_default/params.toml       Left sidebar/profile information
+
+Presentation locations:
+- layouts/                          Site-specific templates
+- assets/scss/custom.scss           Site-specific styling
+
+Third-party and generated locations:
+- themes/anatole/                   Third-party theme; avoid routine edits
+- public/                           Generated website output
+- resources/                        Generated Hugo resources
+
+
+3. FILE-ORGANIZATION WORK COMPLETED
+===================================
+
+The following files were added or changed:
+
+1. README.md
+   Added a short repository overview and links to the editing guide.
+
+2. docs/CONTENT_MAP.md
+   Added a detailed map from every visible website area to the exact source
+   file or folder that controls it.
+
+3. data/portfolio/publications.yml
+   Moved the six existing publication records out of the old single
+   data/portfolio.yml file and into a clearly named Publications data file.
+
+4. layouts/portfolio/list.html
+   Updated the Portfolio template to read publication data from the new file.
+
+5. data/portfolio.yml
+   Removed after its live publication content was moved to
+   data/portfolio/publications.yml.
+
+The intent of these changes was organizational only. Existing publication
+content, navigation URLs, and visible page structure were not intentionally
+redesigned during this step.
+
+
+4. CONTENT EDITING MAP
+======================
+
+Left sidebar:
+- Name, professional title, description, and social links:
+  config/_default/params.toml
+- Profile image:
+  static/images/avatar.png
+
+Top navigation:
+- Names, order, and URLs:
+  config/_default/menus.en.toml
+
+Main tabs:
+- About:
+  content/english/_index.md
+- Posts:
+  content/english/post/
+- Portfolio / Publications:
+  data/portfolio/publications.yml
+- Tutorials:
+  content/english/tutorials/
+- Contact:
+  content/english/contact.md
+
+Assets:
+- Post images:
+  static/images/posts/
+- Portfolio images:
+  static/images/portfolio/
+- Publication PDFs:
+  static/files/portfolio/
+- Tutorial HTML and PDF files:
+  static/tutorials/
+
+
+5. PORTFOLIO DESIGN REQUIREMENTS
+================================
+
+Required page order:
+
+1. Portfolio heading
+2. Coding Projects section
+3. Publications section
+
+Coding Projects:
+- Appear at the top of the Portfolio page.
+- Use the current Anatole theme's established visual language.
+- Each project should include a project image or simple workflow preview,
+  project name, status/year, short description, link, and technical tags.
+- Clicking a project should open its own detail page.
+
+Project detail pages should support:
+- Overview
+- Problem or motivation
+- Workflow or architecture
+- Setup and usage instructions
+- Tutorial or worked example
+- Code examples
+- GitHub repository link
+- Demo, documentation, or package website link when available
+
+Publications:
+- Appear after Coding Projects on the same Portfolio page.
+- Use a compact academic list rather than oversized magazine-cover cards.
+- Each row should show year, title, author/citation information, and links.
+- Preferred actions are PDF and Article.
+- Code or Supplement may be added only when those resources exist.
+
+
+6. VISUAL DIRECTION AND USER FEEDBACK
+=====================================
+
+The first proposed sketch introduced a new product-style visual system with
+modern cards, badges, and workflow panels. This direction was rejected because
+it added too much visual invention and departed from the existing website.
+
+Important user feedback:
+- Do not redesign the website into a different product aesthetic.
+- Preserve and refine the existing Anatole theme.
+- Improve or combine existing components instead of introducing an unrelated
+  design system.
+- The result should be compact, elegant, and professional.
+
+Current preferred visual direction:
+- Keep the existing left sidebar.
+- Keep the existing uppercase text navigation.
+- Keep the white background, thin rules, restrained gray surfaces, current
+  typography, and subtle blue links.
+- Reduce excessive empty space and oversized project images.
+- Retain the existing image-plus-description composition, but make each project
+  substantially shorter and more balanced.
+- Use compact publication rows after the projects.
+- Avoid unnecessary badges, dashboards, statistics, decorative panels, and
+  colorful product-style UI elements.
+
+A second discussion sketch was created to illustrate this direction. It was a
+conversation-only visual reference and was not applied to the website source.
+
+
+7. CONTACT NAVIGATION DECISION
+==============================
+
+Recommendation:
+- Remove Contact from the visible top-level navigation.
+- Keep the existing Contact page and URL for backward compatibility.
+- Add a concise contact call-to-action to the left sidebar.
+
+Hiring-manager and recruiter rationale:
+- Recruiters should be able to find and copy the email address from every page.
+- A separate Contact tab adds an extra click without adding meaningful content.
+- The current Contact page contains too little information to justify a primary
+  navigation position.
+- Professional work, projects, publications, and tutorials deserve greater
+  navigation priority.
+- A visible email address is easier to copy into recruiting systems or forward
+  to another manager than a generic "Contact me" button.
+
+Recommended sidebar copy:
+
+Open to collaboration
+Research, biostatistics, and statistical computing opportunities.
+peiyu.liu.stats@gmail.com
+
+Recommended link behavior:
+
+<a href="mailto:peiyu.liu.stats@gmail.com">
+  peiyu.liu.stats@gmail.com
+</a>
+
+Important implementation details:
+- The full email address should remain visible.
+- On mobile, the contact block must remain easy to find when the sidebar
+  collapses or moves.
+- The old /contact/ URL should not be deleted even if the navigation item is
+  hidden.
+
+Recommended final top navigation:
+- ABOUT
+- POSTS
+- PORTFOLIO
+- TUTORIALS
+
+
+8. EXISTING ISSUE DISCOVERED
+============================
+
+Paper 5 currently links to:
+
+/files/portfolio/m2-RSV.pdf
+
+That file does not exist under static/files/portfolio/. The link was not
+changed because the correct PDF could not be identified with confidence. The
+correct target must be confirmed before implementation.
+
+
+9. VALIDATION STATUS
+====================
+
+Completed checks:
+- Reviewed repository structure and Hugo configuration.
+- Reviewed menu, sidebar, Portfolio data, Portfolio layout, tutorial layouts,
+  and content locations.
+- Confirmed the existence of most publication images and PDF targets.
+- Confirmed the missing Paper 5 PDF target described above.
+- Checked the structural template changes for formatting errors.
+
+Limitation:
+- Hugo is not installed in the current local environment, so a complete local
+  Hugo build has not yet been run.
+- The repository's GitHub Actions workflow uses Hugo Extended 0.147.8.
+
+
+10. RECOMMENDED NEXT IMPLEMENTATION STEPS
+=========================================
+
+1. Confirm the second, theme-preserving Portfolio direction.
+2. Confirm whether Contact should be removed from the visible navigation.
+3. Confirm the exact sidebar contact wording.
+4. Identify the first real Coding Project and collect:
+   - Project title
+   - One-sentence summary
+   - Status and year
+   - Technologies/tags
+   - GitHub URL
+   - Documentation or demo URL
+   - Project image or workflow diagram
+   - Tutorial/workflow content
+5. Create a dedicated content structure for Coding Projects.
+6. Build compact project previews on the Portfolio page.
+7. Build reusable individual project-detail pages.
+8. Convert Publications to compact rows with PDF and Article links.
+9. Add a visible mailto email block to the sidebar.
+10. Hide Contact from the main menu while retaining the page URL.
+11. Confirm and repair the missing Paper 5 PDF link.
+12. Install or otherwise access Hugo Extended 0.147.8 and run a full build.
+13. Review desktop and mobile layouts before deployment.
+
+
+11. SCOPE CONTROL FOR FUTURE WORK
+=================================
+
+Future changes should follow these rules:
+
+- Preserve the Anatole theme and the site's existing identity.
+- Prefer refinement over replacement.
+- Do not change visible content unless explicitly requested.
+- Do not delete working URLs.
+- Keep Coding Projects above Publications.
+- Keep Publications compact and academically formatted.
+- Keep contact information immediately accessible.
+- Avoid speculative features or decorative elements that do not help a
+  recruiter, hiring manager, collaborator, or research visitor evaluate the
+  work quickly.

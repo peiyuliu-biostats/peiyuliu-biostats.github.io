@@ -16,7 +16,7 @@
 
 .nav__list-item {
   a {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 }
 
@@ -102,5 +102,20 @@
 .contact-page-part2 {
   .mailto a {
     line-height: 2rem;
+  }
+}
+
+.sidebar__contact {
+  margin-top: 1.2rem;
+
+  p {
+    margin: 0 0 0.4rem;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  a {
+    font-size: 1.3rem;
   }
 }

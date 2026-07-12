@@ -6,9 +6,10 @@ author = "Peiyu Liu"
 description = """
 Biostatistician | Modeling Scientist
 Applied Mathematician | Epidemiologist
-
-Email: peiyu.liu.stats@gmail.com
 """
+
+availability = "Open to research collaborations and industry biostatistics roles"
+email = "peiyu.liu.stats@gmail.com"
 
 profilePicture = "images/avatar.png"
 keywords = ""
