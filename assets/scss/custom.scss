@@ -106,16 +106,16 @@
 }
 
 .sidebar__contact {
-  margin-top: 1.2rem;
+  margin-top: 2rem;
 
   p {
-    margin: 0 0 0.4rem;
+    margin: 0 0 0.6rem;
     color: #777;
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: inherit;
   }
 
   a {
-    font-size: 1.3rem;
+    color: #6495ed;
+    font-size: inherit;
   }
 }
