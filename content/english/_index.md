@@ -30,27 +30,33 @@ certification_images:
 
 ### About Me
 
-I'm a **biostatistician** and **Biostatistics Ph.D Candidate** at University of Florida. I have 7+ years’ of experience in **statistics, machine learning methods, biostatistics computing, differential equations, clinical trial analysis and epidemiology**.
+I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the University of Florida. I have 7+ years of experience in **statistical modeling, biostatistics computing, stochastic differential equations, clinical trial analysis, and epidemiology**.
 
 ### Specialty
 
-- Bayesian hierarchical, regressions, survival models (KM, CoxPh, AFT), and longitudinal (GEE, GLMM), etc.
+- Bayesian hierarchical models, missing-data methods (data augmentation and MNAR sensitivity analysis), and mechanistic models (ODEs and identifiability analysis)
 
-- KNN & Neural network models & GAM, estimation of Gradient descent & MCMC, cross-validation & bootstrap.
+- Survival and longitudinal models (RMST, Cox PH, AFT, GEE, and GLMM); gradient descent, KNN, neural network models, and cross-validation
 
-- R, Rshiny, SAS, SQL, Python, Matlab,Maple, HTML, C++, and CSS
+- R/R Shiny, SAS, Julia, Python, MATLAB, Maple, and C++
 
-- Compartment models, clinical trial power, and sample size calculation.
+- CDISC data standards (SDTM, ADaM, and TLG), clinical trial power, and sample size calculation
 
-### Rshiny Applications
+### Clinical Data Tools
 
-- [Oncology Dose Optimization (Clinical Utility Score framework, exposure-response modeling, survival analysis) (Click to Open)](https://peiyuliu.shinyapps.io/ontology-cus-pkboin-v1/)
+- [Clinical Data Trace: tracing an analysis value back through ADaM, SDTM, and raw layers (Click to Open)](https://agent-cdisc-datasets-trace.streamlit.app/)
 
-- [Predictive modelling comparing dengue trial designs: antibody vs. infection endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
+- [Clinical Trial Data Standards & Sample Size Suite: CDISC-aligned dataset checks and sample size calculation (Click to Open)](https://peiyuliu.shinyapps.io/clinical-data-ssize-suite/)
 
-- [US Weather Data: Visualization, K-Means Clustering, and Machine Learning Forecasting (Click to Open)](https://peiyuliu.shinyapps.io/us-weather-analysis/)
+### R Shiny Apps
+
+- [Oncology Dose Optimization: Clinical Utility Score framework, exposure-response modeling, PK-BOIN dose finding, and survival analysis (Click to Open)](https://peiyuliu.shinyapps.io/oncology-cus-pkboin-v1/)
+
+- [Arboviral Trial Endpoint Comparison: serological biomarker vs. clinical case endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
 - [SIR Models Estimation: Least Squares vs. Bootstrap vs. MCMC (Click to Open)](https://peiyuliu.shinyapps.io/sir-estimation-comparison/)
+
+- [US Weather Data: Visualization, K-Means Clustering, and Machine Learning Forecasting (Click to Open)](https://peiyuliu.shinyapps.io/us-weather-analysis/)
 
 
 ### Certifications
