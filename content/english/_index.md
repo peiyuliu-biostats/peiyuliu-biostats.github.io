@@ -2,12 +2,16 @@
 title: "About"
 
 certification_images:
+  - src: "images/portfolio/C-Tensorflow.png"
+    title: "TensorFlow"
+
+
   - src: "images/portfolio/c1.png"
     title: "Clinical Trial Data"
 
 
-  - src: "images/portfolio/c2.png"
-    title: "Good Clinical Practice"
+  - src: "images/portfolio/C-SQL.png"
+    title: "SQL"
 
 
   - src: "images/portfolio/c7.png"
