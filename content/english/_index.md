@@ -25,7 +25,7 @@ certification_images:
 ##  Peiyu Liu
 
 ###### M.S., Ph.D.
-###### [Resume](files/Peiyu_Liu_CV.pdf)      [Curriculum Vitae](files/CV-PL-0925.pdf)   
+###### [Curriculum Vitae](files/CV-Peiyu.pdf)
 
 
 ### About Me
@@ -50,9 +50,9 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 
 - [Arboviral Trial Endpoint Comparison: serological biomarker vs. clinical case endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
-- [SIR Models Estimation: Least Squares vs. Bootstrap vs. MCMC (Click to Open)](https://peiyuliu.shinyapps.io/sir-estimation-comparison/)
+<!-- - [SIR Models Estimation: Least Squares vs. Bootstrap vs. MCMC (Click to Open)](https://peiyuliu.shinyapps.io/sir-estimation-comparison/) -->
 
-- [US Weather Data: Visualization, K-Means Clustering, and Machine Learning Forecasting (Click to Open)](https://peiyuliu.shinyapps.io/us-weather-analysis/)
+<!-- - [US Weather Data: Visualization, K-Means Clustering, and Machine Learning Forecasting (Click to Open)](https://peiyuliu.shinyapps.io/us-weather-analysis/) -->
 
 
 ### Certifications
