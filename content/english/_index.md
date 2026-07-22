@@ -42,15 +42,11 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 
 - CDISC data standards (SDTM, ADaM, and TLG), clinical trial power, and sample size calculation
 
-### Clinical Data Tools
-
-- [Clinical Data Trace: tracing an analysis value back through ADaM, SDTM, and raw layers (Click to Open)](https://agent-cdisc-datasets-trace.streamlit.app/)
-
-- [Clinical Trial Data Standards & Sample Size Suite: CDISC-aligned dataset checks and sample size calculation (Click to Open)](https://peiyuliu.shinyapps.io/clinical-data-ssize-suite/)
-
 ### R Shiny Apps
 
 - [Oncology Dose Optimization: Clinical Utility Score framework, exposure-response modeling, PK-BOIN dose finding, and survival analysis (Click to Open)](https://peiyuliu.shinyapps.io/oncology-cus-pkboin-v1/)
+
+- [Clinical Trial Data Standards & Sample Size Suite: CDISC-aligned dataset checks, sample size and power across time-to-event, continuous, and count endpoints (Click to Open)](https://peiyuliu.shinyapps.io/clinical-data-ssize-suite/)
 
 - [Arboviral Trial Endpoint Comparison: serological biomarker vs. clinical case endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
