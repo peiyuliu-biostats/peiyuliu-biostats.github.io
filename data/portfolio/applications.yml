@@ -1,0 +1,26 @@
+title: Applications
+description: Selected tools. Each opens live.
+items:
+  - name: Clinical Data Trace
+    credential: Python · CDISC · lineage
+    description: Traces an analysis value back through ADaM, SDTM, and raw to answer where a number came from.
+    details: portfolio/clinical-data-trace/
+    live_label: Open
+    live_url: https://agent-cdisc-datasets-trace.streamlit.app/
+    code_url: ""
+
+  - name: vaxineR
+    credential: R · on CRAN · 2025
+    description: Vaccine coverage and outbreak risk analysis. Published R package.
+    details: portfolio/vaxiner/
+    live_label: CRAN
+    live_url: https://cran.r-project.org/web/packages/vaxineR/
+    code_url: https://github.com/peiyuliu-biostats/vaxineR
+
+  - name: Oncology Dose Optimization
+    credential: R Shiny · CUS · PK-BOIN
+    description: Clinical utility score and exposure-response for dose selection.
+    details: portfolio/oncology-dose-optimization/
+    live_label: Open
+    live_url: https://peiyuliu.shinyapps.io/oncology-cus-pkboin-v1/
+    code_url: https://github.com/peiyuliu-biostats/ontology-cus-pkboin-v1

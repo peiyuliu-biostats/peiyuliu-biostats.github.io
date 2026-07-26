@@ -1,108 +1,98 @@
 {{ define "main" }}
-  {{/* Portfolio content is organized by section under data/portfolio/. */}}
-  {{ $sections := slice .Site.Data.portfolio.publications }}
-  {{ range $index, $elemen:= $sections }}
-    <div
-      class="post {{ with .Site.Params.doNotLoadAnimations }}
-        .
-      {{ else }}
-        animated fadeInDown
-      {{ end }}"
-    >
-      {{ $anchorTitle := delimit (split .title " ") "" }}
+  {{ $applications := .Site.Data.portfolio.applications }}
+  {{ $publications := .Site.Data.portfolio.publications }}
 
+  <div
+    class="post portfolio-page {{ with .Site.Params.doNotLoadAnimations }}
+      .
+    {{ else }}
+      animated fadeInDown
+    {{ end }}"
+  >
+    <section class="portfolio-section" aria-labelledby="applications-title">
+      <h2 class="portfolio-section__title" id="applications-title">{{ $applications.title }}</h2>
+      <p class="portfolio-section__subtitle">{{ $applications.description }}</p>
 
-      <h2 class="portfolio__title" id="{{ $anchorTitle | lower }}">{{ title .title }}</h2>
-      {{ if .description }}
-        <h4>{{ .description }}</h4>
-      {{ end }}
-      {{ range $i, $p := .items }}
-        <div class="portfolio">
-
-            <div
-              class="portfolio__image-wrapper {{ if (modBool $i 2) }}
-                portfolio__image-wrapper--right
+      <div class="portfolio-applications">
+        {{ range $applications.items }}
+          <article class="portfolio-app">
+            <div class="portfolio-app__media" aria-label="{{ .name }} screenshot placeholder">
+              {{ with .image }}
+                <img src="{{ . | relURL }}" alt="Application screenshot" />
               {{ else }}
-                portfolio__image-wrapper--left
-              {{ end }}"
-            >
-              {{ if .image }}
-                  {{ if .link }}
-                    <a href="{{ .link | safeURL }}" target="_blank" rel="noopener">
-                      <img class="portfolio__image" src="{{ .image | relURL }}" alt="{{ .name | markdownify }}" />
-                    </a>
-                  {{ else }}
-                    <img class="portfolio__image" src="{{ .image | relURL }}" alt="{{ .name | markdownify }}" />
-                  {{ end }}
-              {{ else }}
-                  <p>&nbsp;</p>
+                <span>Screenshot coming soon</span>
               {{ end }}
             </div>
 
-          <div
-            class="portfolio__description {{ if (modBool $i 2) }}
-              portfolio__description--left
-            {{ else }}
-              portfolio__description--right
-            {{ end }}"
-          >
-            <h2>{{ .name | markdownify }}</h2>
-            <ul class="portfolio__meta">
-              {{ if .status }}
-                <li class="portfolio__meta-item">
-                  <em class="fas fa-flag-checkered"></em>
-                  <span>{{ .status }}</span>
-                </li>
-              {{ end }}
-              {{ if .venue }}
-                <li class="portfolio__meta-item">
-                  <em class="fas fa-map-marker-alt"></em>
-                  <span>{{ .venue }}</span>
-                </li>
-              {{ end }}
-              {{ if .start }}
-                <li class="portfolio__meta-item">
-                  <em class="fas fa-arrow-up"></em>
-                  <span>{{ .start }}</span>
-                </li>
-              {{ end }}
-              {{ if .end }}
-                <li class="portfolio__meta-item">
-                  <em class="fas fa-arrow-down"></em>
-                  <span>{{ .end }}</span>
-                </li>
-              {{ end }}
-              {{ if .authors }}
-                {{ range .authors }}
-                  <li class="portfolio__meta-item">
-                    <em class="fas fa-at"></em>
-                    <span>{{ . }}</span>
-                  </li>
-                {{ end }}
+            <div class="portfolio-app__content">
+              <h3 class="portfolio-app__name">{{ .name }}</h3>
+              <p class="portfolio-app__credential">{{ .credential }}</p>
+              <p class="portfolio-app__description">{{ .description }}</p>
 
-              {{ end }}
-            </ul>
-            <p>{{ .description | markdownify }}</p>
-            {{ if .link }}
-              <div class="portfolio__button-wrapper">
-                <a class="portfolio__button" href="{{ .link | safeURL }}" target="_blank" rel="noopener">
-                  {{- if .linktext -}}
-                    {{ .linktext | markdownify }}
-                  {{- else -}}
-                    Visit Site
-                  {{- end -}}
+              <div class="portfolio-app__actions" aria-label="{{ .name }} links">
+                <a class="portfolio-action portfolio-action--details" href="{{ .details | relURL }}">
+                  Details →
                 </a>
+                <a
+                  class="portfolio-action"
+                  href="{{ .live_url | safeURL }}"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {{ .live_label }}
+                </a>
+                {{ with .code_url }}
+                  <a
+                    class="portfolio-action"
+                    href="{{ . | safeURL }}"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Code
+                  </a>
+                {{ else }}
+                  <span class="portfolio-action portfolio-action--disabled" aria-disabled="true">Code</span>
+                {{ end }}
               </div>
-            {{ end }}
-            <div class="separator">
-              {{ range .tags }}
-                <p class="tag">{{ . }}</p>
-              {{ end }}
             </div>
-          </div>
-        </div>
-      {{ end }}
-    </div>
-  {{ end }}
+          </article>
+        {{ end }}
+      </div>
+    </section>
 
+    <section
+      class="portfolio-section portfolio-section--publications"
+      aria-labelledby="publications-title"
+    >
+      <h2 class="portfolio-section__title" id="publications-title">{{ $publications.title }}</h2>
+      <p class="portfolio-section__subtitle">
+        Selected. Full list on
+        <a href="{{ $publications.scholar_url | safeURL }}" target="_blank" rel="noopener">
+          Google Scholar
+        </a>.
+      </p>
+
+      <div class="publication-list">
+        {{ range $publications.items }}
+          <article class="publication-item">
+            <p class="publication-item__citation">
+              <strong>{{ .author }}</strong>{{ with .coauthors }}, {{ . }}{{ end }}.
+              {{ .title }}
+            </p>
+            <p class="publication-item__venue">{{ .venue }}</p>
+            {{ if or .pdf .doi }}
+              <p class="publication-item__links">
+                {{ with .pdf }}
+                  <a href="{{ . | relURL }}" target="_blank" rel="noopener">PDF</a>
+                {{ end }}
+                {{ with .doi }}
+                  <a href="{{ . | safeURL }}" target="_blank" rel="noopener">DOI</a>
+                {{ end }}
+              </p>
+            {{ end }}
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  </div>
 {{ end }}

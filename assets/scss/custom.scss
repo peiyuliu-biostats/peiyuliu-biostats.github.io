@@ -1,3 +1,4 @@
+@use 'modules/color_theme' as color;
 
 .logo-img-wrap {
   position: absolute;
@@ -36,15 +37,34 @@
 
 
 .home-about-page {
-  h2, h6 {
+  font-size: 1.5rem;
+
+  h2,
+  h6 {
     text-align: center;
   }
+
+  h2 {
+    margin-bottom: 1.2rem;
+  }
+
   h6 {
+    margin: 0 0 0.8rem;
     font-size: 1.7rem;
     font-weight: normal;
+
     a {
       padding: 0 1rem;
     }
+  }
+
+  h6 + h6 {
+    margin-top: 1.2rem;
+    margin-bottom: 2.8rem;
+  }
+
+  h3:first-of-type + p {
+    text-indent: 2em;
   }
 }
 
@@ -117,5 +137,197 @@
   a {
     color: #6495ed;
     font-size: inherit;
+  }
+}
+
+.portfolio-page {
+  max-width: 920px;
+}
+
+.portfolio-section {
+  &__title {
+    margin: 0;
+    font-size: 2.6rem;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  &__subtitle {
+    margin: 0.4rem 0 2rem;
+    font-size: 1.2rem;
+
+    @include color.themed() {
+      color: color.t('primary-light');
+    }
+  }
+
+  &--publications {
+    margin-top: 4rem;
+    padding-top: 3rem;
+
+    @include color.themed() {
+      border-top: 0.5px solid color.t('primary-lighter');
+    }
+  }
+}
+
+.portfolio-applications {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.portfolio-app {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 12px;
+
+  @include color.themed() {
+    border: 0.5px solid color.t('primary-lighter');
+  }
+
+  &__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 96px;
+    overflow: hidden;
+    border-radius: 0.5em;
+    font-size: 1.1rem;
+    text-align: center;
+
+    @include color.themed() {
+      border: 0.5px solid color.t('primary-lighter');
+      color: color.t('primary-light');
+      background: color.t('primary-lighter');
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__name {
+    margin: 0 0 0.3rem;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  &__credential {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+
+    @include color.themed() {
+      color: color.t('primary-light');
+    }
+  }
+
+  &__description {
+    margin: 0 0 0.8rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+
+    @include color.themed() {
+      color: color.t('primary-light');
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+.portfolio-action {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 0.5em;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-decoration: none;
+
+  @include color.themed() {
+    border: 0.5px solid color.t('primary-lighter');
+    color: color.t('primary-light');
+  }
+
+  &--details {
+    @include color.themed() {
+      border-color: color.t('primary-light');
+      color: color.t('primary');
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+}
+
+.publication-list {
+  margin-top: 0.2rem;
+}
+
+.publication-item {
+  padding: 1.4rem 0;
+
+  @include color.themed() {
+    border-bottom: 0.5px solid color.t('primary-lighter');
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &__citation {
+    line-height: 1.6;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  &__venue {
+    margin-top: 0.3rem !important;
+    font-size: 1.2rem;
+
+    @include color.themed() {
+      color: color.t('primary-light');
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.3rem !important;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .portfolio-app {
+    grid-template-columns: minmax(0, 1fr);
+
+    &__media {
+      width: 100%;
+      height: 120px;
+    }
   }
 }
