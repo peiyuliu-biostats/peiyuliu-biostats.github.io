@@ -1,0 +1,4 @@
+<section class="pf-section" id="{{ .Get "title" | urlize }}">
+  <h2><span class="pf-section__num">{{ .Get "num" }}</span> {{ .Get "title" }}</h2>
+  <div class="pf-section__body">{{ .Inner | markdownify }}</div>
+</section>

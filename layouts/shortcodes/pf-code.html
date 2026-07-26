@@ -1,0 +1,4 @@
+<div class="pf-code">
+  {{ with .Get "lang" }}<span class="pf-code__lang">{{ . }}</span>{{ end }}
+  {{ highlight (trim .Inner "\n") (.Get "lang" | default "text") "" }}
+</div>

@@ -1,0 +1,12 @@
+<div class="pf-filetree">
+  {{- range (.Inner | strings.Split "\n") -}}
+    {{- $line := trim . " " -}}
+    {{- if $line -}}
+      {{- $parts := split $line "||" -}}
+      <div class="pf-filetree__tree"><code>{{ index $parts 0 }}</code></div>
+      <div class="pf-filetree__label">
+        {{- if gt (len $parts) 1 }}{{ index $parts 1 }}{{ end -}}
+      </div>
+    {{- end -}}
+  {{- end -}}
+</div>

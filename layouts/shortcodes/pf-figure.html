@@ -1,0 +1,4 @@
+<figure class="pf-figure">
+  <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" loading="lazy" />
+  {{ with .Get "caption" }}<figcaption class="pf-figure__cap">{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

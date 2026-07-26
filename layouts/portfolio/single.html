@@ -1,0 +1,32 @@
+{{ define "main" }}
+  {{ $css := resources.Get "css/portfolio-detail.css" | resources.Minify }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+
+  {{ if .Params.math }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body,{delimiters:[
+        {left:'$$',right:'$$',display:true},
+        {left:'$',right:'$',display:false}]});"
+    ></script>
+  {{ end }}
+
+  <div
+    class="post {{ with .Site.Params.doNotLoadAnimations }}
+      .
+    {{ else }}
+      animated fadeInDown
+    {{ end }}"
+  >
+    <article class="pf-detail">
+      <header class="pf-detail__header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.credential }}<p class="pf-detail__credential">{{ . }}</p>{{ end }}
+      </header>
+      {{ .Content }}
+    </article>
+  </div>
+{{ end }}
