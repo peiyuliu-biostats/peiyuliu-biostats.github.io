@@ -13,6 +13,10 @@
   <iframe
           src="{{ .Params.tutorial_file | relURL }}"
           class="pdf-viewer"
+          title="{{ .Title }}"
+          sandbox="allow-scripts"
+          referrerpolicy="no-referrer"
+          loading="lazy"
   >
   </iframe>
  </div>
