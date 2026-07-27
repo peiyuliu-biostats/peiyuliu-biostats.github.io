@@ -1,3 +1,13 @@
+.wrapper__main--fullscreen:has(.pf-detail),
+.post:has(> .pf-detail) {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none !important;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100% !important;
+}
+
 .pf-detail {
   --pf-text: var(--color-text, #1a1a1a);
   --pf-muted: var(--color-muted, #6b7280);
@@ -8,12 +18,13 @@
   color: var(--pf-text, #1a1a1a);
   font-family: "Times New Roman", Times, Georgia, serif;
   font-size: 18px;
-  line-height: 1.7;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80rem;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 83.2rem !important;
   min-width: 0;
   padding: 0 1rem;
+  width: auto !important;
 }
 
 .pf-detail *,
@@ -49,8 +60,13 @@
   font-weight: 400;
 }
 
+.pf-detail,
 .pf-detail p {
-  margin: 0 0 1.05rem;
+  line-height: 1.55 !important;
+}
+
+.pf-detail p {
+  margin: 0 0 1rem;
 }
 
 .pf-detail .pf-section__body > *:first-child {
