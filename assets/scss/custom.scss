@@ -212,6 +212,15 @@
       height: 100%;
       object-fit: cover;
     }
+
+    &-button {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+    }
   }
 
   &__content {
@@ -321,6 +330,49 @@
   }
 }
 
+.portfolio-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+
+  &.is-open {
+    display: flex;
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 96vw;
+    max-height: 92vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  &__close {
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .portfolio-app {
     grid-template-columns: minmax(0, 1fr);
@@ -329,5 +381,9 @@
       width: 100%;
       height: 120px;
     }
+  }
+
+  .portfolio-lightbox {
+    padding: 0.75rem;
   }
 }

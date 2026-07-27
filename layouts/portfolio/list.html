@@ -14,11 +14,17 @@
       <p class="portfolio-section__subtitle">{{ $applications.description }}</p>
 
       <div class="portfolio-applications">
-        {{ range $applications.items }}
+        {{ range $app := $applications.items }}
           <article class="portfolio-app">
             <div class="portfolio-app__media" aria-label="{{ .name }} screenshot placeholder">
               {{ with .image }}
-                <img src="{{ . | relURL }}" alt="Application screenshot" />
+                <button
+                  class="portfolio-app__media-button"
+                  type="button"
+                  aria-label="Enlarge {{ $app.name }} screenshot"
+                >
+                  <img src="{{ . | relURL }}" alt="{{ $app.name }} application screenshot" />
+                </button>
               {{ else }}
                 <span>Screenshot coming soon</span>
               {{ end }}
@@ -95,4 +101,46 @@
       </div>
     </section>
   </div>
+
+  <div class="portfolio-lightbox" id="portfolio-lightbox" aria-hidden="true">
+    <button class="portfolio-lightbox__close" type="button" aria-label="Close">&times;</button>
+    <img src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById("portfolio-lightbox");
+      if (!box) return;
+      var full = box.querySelector("img");
+      var closeBtn = box.querySelector(".portfolio-lightbox__close");
+
+      function open(img) {
+        full.src = img.currentSrc || img.src;
+        full.alt = img.alt || "";
+        box.classList.add("is-open");
+        box.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function close() {
+        box.classList.remove("is-open");
+        box.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        full.src = "";
+      }
+
+      document.querySelectorAll(".portfolio-app__media-button img").forEach(function (img) {
+        img.parentElement.addEventListener("click", function () {
+          open(img);
+        });
+      });
+
+      box.addEventListener("click", function (event) {
+        if (event.target === box || event.target === closeBtn) close();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && box.classList.contains("is-open")) close();
+      });
+    })();
+  </script>
 {{ end }}
