@@ -21,7 +21,7 @@
   float: none !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  max-width: 83.2rem !important;
+  max-width: 96rem !important;
   min-width: 0;
   padding: 0 1rem;
   width: auto !important;
@@ -113,18 +113,24 @@
 }
 
 .pf-detail .pf-figure {
-  margin: 1.6rem auto;
-  max-width: 34rem;
+  margin: 1.8rem auto;
+  max-width: 85%;
   text-align: center;
 }
 
 .pf-detail .pf-figure img {
   border: 0.5px solid var(--pf-border, rgba(0, 0, 0, 0.14));
   border-radius: 12px;
+  cursor: zoom-in;
   display: block;
   height: auto;
   margin: 0 auto;
   max-width: 100%;
+  transition: filter 0.15s ease;
+}
+
+.pf-detail .pf-figure img:hover {
+  filter: brightness(0.97);
 }
 
 .pf-detail .pf-figure__cap {
@@ -133,7 +139,7 @@
   font-size: 0.9rem;
   font-style: normal;
   line-height: 1.5;
-  margin-top: 0.5rem;
+  margin-top: 0.55rem;
   text-align: left;
 }
 
@@ -262,9 +268,52 @@
   text-align: center;
 }
 
+.pf-lightbox {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+  display: none;
+  inset: 0;
+  justify-content: center;
+  padding: 2rem;
+  position: fixed;
+  z-index: 9999;
+}
+
+.pf-lightbox.is-open {
+  display: flex;
+}
+
+.pf-lightbox img {
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  height: auto;
+  max-height: 92vh;
+  max-width: 96vw;
+  width: auto;
+}
+
+.pf-lightbox__close {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  opacity: 0.8;
+  position: fixed;
+  right: 1.25rem;
+  top: 1rem;
+}
+
+.pf-lightbox__close:hover {
+  opacity: 1;
+}
+
 @media (max-width: 640px) {
   .pf-detail {
     font-size: 16px;
+    max-width: 100% !important;
     padding: 0 0.9rem;
   }
 
@@ -286,5 +335,9 @@
 
   .pf-detail .pf-filetree__label {
     text-align: left;
+  }
+
+  .pf-lightbox {
+    padding: 0.75rem;
   }
 }

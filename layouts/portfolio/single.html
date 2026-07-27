@@ -32,4 +32,44 @@
       {{ .Content }}
     </article>
   </div>
+
+  <div class="pf-lightbox" id="pf-lightbox" aria-hidden="true">
+    <button class="pf-lightbox__close" type="button" aria-label="Close">&times;</button>
+    <img src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById("pf-lightbox");
+      if (!box) return;
+      var full = box.querySelector("img");
+      var closeBtn = box.querySelector(".pf-lightbox__close");
+
+      function open(src, alt) {
+        full.src = src;
+        full.alt = alt || "";
+        box.classList.add("is-open");
+        box.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+      function close() {
+        box.classList.remove("is-open");
+        box.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        full.src = "";
+      }
+
+      document.querySelectorAll(".pf-detail .pf-figure img").forEach(function (img) {
+        img.addEventListener("click", function () {
+          open(img.getAttribute("data-full") || img.currentSrc || img.src, img.alt);
+        });
+      });
+
+      box.addEventListener("click", function (e) {
+        if (e.target === box || e.target === closeBtn) close();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && box.classList.contains("is-open")) close();
+      });
+    })();
+  </script>
 {{ end }}
