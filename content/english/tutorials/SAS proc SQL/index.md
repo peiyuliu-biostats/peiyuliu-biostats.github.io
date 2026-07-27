@@ -1,7 +1,7 @@
 ---
 title: "PROC SQL in SAS  "
 description: "UF Peer Tutorial. Guide to PROC SQL in SAS: selecting/filtering, joins, aggregates, `CASE` logic, and subqueries. Uses simple sample datasets and ends with an all-in-one query example for reporting.  "
-date: "2025-08-09"
+date: "2025-08-24"
 
 tutorial_type: "html"
 tutorial_file: "tutorials/SAS-B.html"
