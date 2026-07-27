@@ -4,10 +4,11 @@ items:
   - name: Clinical Data Trace
     credential: Python · CDISC · lineage
     description: Traces an analysis value back through ADaM, SDTM, and raw to answer where a number came from.
+    image: images/portfolio/application1-coverage.png
     details: portfolio/clinical-data-trace/
     live_label: Open
     live_url: https://agent-cdisc-datasets-trace.streamlit.app/
-    code_url: ""
+    code_url: https://github.com/peiyuliu-biostats/agent1-CDISC-datasets-trace
 
   - name: vaxineR
     credential: R · on CRAN · 2025
