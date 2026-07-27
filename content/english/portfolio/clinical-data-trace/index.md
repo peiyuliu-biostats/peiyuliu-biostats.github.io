@@ -114,8 +114,57 @@ and written to `decisions/`. The same shape governs `ask/`, `narrative/`, and
 {{< /pf-section >}}
 
 {{< pf-section num="3" title="Walkthrough" >}}
-<!-- TODO: copy pending. One narrated investigation of subject 1042.
-     Figures via pf-figure, captions = what the step REVEALS. -->
+*One question, followed to the end: is this number what the SAP intended, where
+did it come from, and who is accountable for it? The subject is real study data,
+traced live.*
+
+**Before a value goes wrong, ask whether the spec still agrees with the SAP.**
+
+The first screen is not a trace. It is a check that runs before any single value
+is in doubt. The tool pairs each ADaM specification derivation with the SAP
+passage it should follow, and reports where the wording no longer lines up.
+
+{{< pf-figure src="/portfolio/clinical-data-trace/wt-sap-check.png" alt="SAP alignment table checking ADaM specification derivations against SAP passages" caption="Ten key analysis variables are checked against the SAP; fourteen structural variables carry no SAP definition and are left unchecked rather than assumed correct. The model marks passages that read differently and asks a human to confirm. It does not rule on which document is right." >}}
+
+This is the quiet part of submission work made visible: not fixing an error
+after it surfaces, but seeing where the specification has drifted from the SAP
+before a database lock.
+
+**Then take one value, and follow it to its source.**
+
+From the overview, one number is pulled down to the raw record. Subject 1048,
+`ADTTE.AVAL = 4.2053` months of progression-free survival. The trace resolves in
+seven hops, complete to RAW, and a banner states at once whether anything
+diverged along the way.
+
+{{< pf-figure src="/portfolio/clinical-data-trace/wt-trace-banner.png" alt="Trace result header showing ADTTE.AVAL equals 4.2053 in seven hops with a divergence banner" caption="The value resolves through seven hops down to the raw randomization date. The banner at the top reports the outcome before the reader scrolls: one divergence, at RS.RSDTC, between the investigator and the independent assessor. The signal and the evidence below it come from the same deterministic pass." >}}
+
+The divergence is not a data error. It is two readers of the same scans.
+
+{{< pf-figure src="/portfolio/clinical-data-trace/wt-trace-rs-rows.png" alt="SDTM RS records for one subject showing investigator and independent assessor rows" caption="At the SDTM RS record, the same subject carries two evaluations. The investigator recorded progression on 22 May (green, the traced main chain); the independent assessor recorded it earlier, on 3 May (amber). This evaluator discordance is a routine feature of oncology endpoints, not a mistake to be removed." >}}
+
+{{< pf-figure src="/portfolio/clinical-data-trace/wt-divergence-review.png" alt="Divergence review showing the independent-assessor value recomputing to 3.6 months across nine of sixty subjects" caption="The tool quantifies the alternative: under the independent assessor the value recomputes to 3.6 months, and nine of sixty subjects show the same pattern. It also states plainly that the two branches use different row-selection rules, so this is not a like-for-like comparison. It measures the difference; it does not declare a winner." >}}
+
+**Then record who is accountable for the value.**
+
+The Authorisation panel is honest about a gap: no SAP section is linked to this
+variable, so the specification documents how the value is derived but not who
+authorised it. The reviewer supplies that judgment, and the tool records it.
+
+{{< pf-figure src="/portfolio/clinical-data-trace/wt-decision-log.png" alt="Decision log entry with author, rationale, and timestamp for the traced value" caption="The reviewer confirms the main chain follows the investigator read per the ADaM spec, and that the independent-assessor branch is an expected sensitivity analysis, not a discrepancy to resolve. The decision is saved with author, rationale, and timestamp, and cannot be created except from a trace. The tool presents the difference; the person owns the verdict." >}}
+
+**The same question, asked two other ways.**
+
+The investigation above can begin from plain language, and it can be widened to
+the whole study. Asking "PD" returns two distinct meanings — protocol deviation
+and progressive disease — each tied to its own source document and dataset,
+answered only where a citation supports it. Trace coverage steps back from the
+single value: of forty-seven variables, 57.5% of specification rows parse into
+traceable links and 55.3% trace end-to-end to raw. The tool does not inflate
+either figure — real specifications are mostly prose, and the two numbers are
+reported as the different claims they are.
+
+{{< pf-figure src="/portfolio/clinical-data-trace/wt-ask-coverage.png" alt="Ask study documents returning two distinct cited meanings for the abbreviation PD" caption="Natural-language questions stay anchored to sources, and coverage is reported without rounding away what prose leaves untraceable." >}}
 {{< /pf-section >}}
 
 {{< pf-section num="4" title="Reliability" >}}
