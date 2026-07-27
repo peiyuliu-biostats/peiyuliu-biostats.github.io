@@ -22,6 +22,21 @@
   margin-bottom: 0.35rem;
 }
 
+.pf-detail .pf-back-link {
+  align-items: center;
+  color: var(--pf-muted);
+  display: inline-flex;
+  font-size: 13px;
+  gap: 0.35rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+
+.pf-detail .pf-back-link:hover,
+.pf-detail .pf-back-link:focus-visible {
+  color: var(--pf-text);
+}
+
 .pf-detail__credential {
   color: var(--pf-muted);
   font-size: 12px;
@@ -36,6 +51,16 @@
   color: var(--pf-muted);
   font-size: 0.75em;
   font-weight: 400;
+}
+
+.pf-detail .pf-section__body :not(pre) > code {
+  background: var(--pf-bg-subtle);
+  border: 0.5px solid var(--pf-border);
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.08em 0.28em;
+  white-space: normal;
 }
 
 .pf-detail .pf-spine {

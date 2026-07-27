@@ -6,6 +6,7 @@ draft = false
 math = true
 type = "portfolio"
 layout = "single"
+hidesidebar = true
 +++
 
 {{< pf-section num="1" title="Motivation" >}}
@@ -110,8 +111,6 @@ exact substring of the source passage or it is dropped. The categorical
 judgment — `intended`, `discrepancy`, or `equivalent` — is entered by a reviewer
 and written to `decisions/`. The same shape governs `ask/`, `narrative/`, and
 `codegen/`.
-
-<blockquote class="pf-spine">The graph, the values, the divergence — the parts that must be reproducible — never touch a model. The model only reads two passages and asks whether they still agree.</blockquote>
 {{< /pf-section >}}
 
 {{< pf-section num="3" title="Walkthrough" >}}

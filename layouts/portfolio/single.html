@@ -22,6 +22,9 @@
     {{ end }}"
   >
     <article class="pf-detail">
+      <a class="pf-back-link" href="{{ "portfolio/" | relURL }}" aria-label="Back to Portfolio">
+        <span aria-hidden="true">←</span> Back to Portfolio
+      </a>
       <header class="pf-detail__header">
         <h1>{{ .Title }}</h1>
         {{ with .Params.credential }}<p class="pf-detail__credential">{{ . }}</p>{{ end }}
