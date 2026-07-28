@@ -13,6 +13,7 @@ items:
   - name: vaxineR
     credential: R · on CRAN · 2025
     description: Vaccine coverage and outbreak-risk modeling for Florida schools. Published R package.
+    image: images/portfolio/application2-coverage.png
     details: portfolio/vaxiner/
     live_label: CRAN
     live_url: https://cran.r-project.org/web/packages/vaxineR/
@@ -23,5 +24,5 @@ items:
     description: Clinical utility score and exposure-response for dose selection.
     details: portfolio/oncology-dose-optimization/
     live_label: Open
-    live_url: https://peiyuliu.shinyapps.io/oncology-cus-pkboin-v1/
+    live_url: https://peiyuliu.shinyapps.io/ontology-cus-pkboin-v1/
     code_url: https://github.com/peiyuliu-biostats/ontology-cus-pkboin-v1

@@ -6,6 +6,7 @@ draft = false
 math = true
 type = "portfolio"
 layout = "single"
+hidesidebar = true
 +++
 
 {{< pf-section num="1" title="Motivation" >}}
