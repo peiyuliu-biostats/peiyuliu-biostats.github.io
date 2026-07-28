@@ -2,8 +2,8 @@ title: Applications
 description: Selected tools. Each opens live.
 items:
   - name: Clinical Data Trace
-    credential: Python · CDISC · lineage
-    description: Traces an analysis value back through ADaM, SDTM, and raw to answer where a number came from.
+    credential: Python · AI agent · CDISC · lineage
+    description: Traces any analysis value back through ADaM, SDTM, and raw, and checks the ADaM spec against the SAP.
     image: images/portfolio/application1-coverage.png
     details: portfolio/clinical-data-trace/
     live_label: Open
@@ -12,7 +12,7 @@ items:
 
   - name: vaxineR
     credential: R · on CRAN · 2025
-    description: Vaccine coverage and outbreak risk analysis. Published R package.
+    description: Vaccine coverage and outbreak-risk modeling for Florida schools. Published R package.
     details: portfolio/vaxiner/
     live_label: CRAN
     live_url: https://cran.r-project.org/web/packages/vaxineR/

@@ -1,6 +1,6 @@
 +++
 title = "Clinical Data Trace"
-credential = "Python · CDISC · lineage"
+credential = "Python · AI agent · CDISC · lineage"
 date = 2025-01-01
 draft = false
 math = true
