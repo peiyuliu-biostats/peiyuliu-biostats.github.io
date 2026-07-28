@@ -22,7 +22,7 @@ items:
   - name: Oncology Dose Optimization
     credential: R Shiny · CUS · PK-BOIN
     description: Clinical utility score and exposure-response for dose selection.
-    image: images/portfolio/application3-pkboin.png
+    image: portfolio/oncology-dose-optimization/cover.png
     details: portfolio/oncology-dose-optimization/
     live_label: Open
     live_url: https://peiyuliu.shinyapps.io/ontology-cus-pkboin-v1/

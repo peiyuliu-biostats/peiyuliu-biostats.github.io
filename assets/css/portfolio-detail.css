@@ -143,12 +143,10 @@
 }
 
 .pf-detail .pf-figure__cap {
-  color: var(--pf-muted, #6b7280);
-  font-family: "Times New Roman", Times, Georgia, serif;
-  font-size: 0.9rem;
-  font-style: normal;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  color: #3a3a3a;
   margin-top: 0.55rem;
+  line-height: 1.55;
   text-align: left;
 }
 

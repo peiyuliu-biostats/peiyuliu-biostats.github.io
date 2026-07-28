@@ -72,21 +72,53 @@ throughout — Plotly figures, decision tables, debounced controls.
 {{< /pf-section >}}
 
 {{< pf-section num="3" title="Walkthrough" >}}
-Two paths show the two kinds of question the app answers.
+The app answers two kinds of question: how to score exposure-response on data in
+hand, and how a trial design behaves before it is run. Each is shown below.
 
 **Scoring exposure-response with CUS.**
 
-{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-cus-endpoint.png" alt="CUS endpoint settings with continuous, binary, and survival endpoint types and their regression models" caption="Endpoints can be continuous, binary, or time-to-event in the same analysis. Here efficacy is continuous, one safety endpoint is binary, and another is survival — with a baseline hazard family and a restricted-mean-survival-time horizon. This is the extension of the Clinical Utility Score beyond its original binary formulation." >}}
+An exposure-response analysis moves through three stages: define each endpoint
+and the curve fitted to it, decide how each fitted rate maps to a unit-scale
+utility, and read the aggregated score. Endpoints of different types can be mixed
+in one analysis.
 
-{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-cus-score.png" alt="Clinical Utility Score curve across exposure with the maximizing dose marked" caption="Each endpoint's exposure-response curve is scored to a unit-scale utility, and the utilities are combined by weight into a single Clinical Utility Score across exposure. The exposure that maximizes it is the recommended dose — here Max CUS = 0.211 at PK = 1.61. The aggregation is the weighted geometric mean shown in the toggle." >}}
+The first stage sets the endpoints. Efficacy and safety endpoints are declared,
+each as continuous, binary, or time-to-event, and each is given its
+exposure-response model.
+
+{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-cus-endpoint.png" alt="CUS endpoint settings with continuous, binary, and survival endpoint types and their regression models" caption="Endpoints can be mixed in one analysis. Here efficacy is continuous, one safety endpoint is binary, and another is time-to-event — the survival endpoint carries a baseline hazard family and a restricted-mean-survival-time horizon. This is the extension of the Clinical Utility Score beyond its original binary formulation." >}}
+
+The endpoint utilities are then combined into a single score across exposure, and
+the exposure that maximizes it is read off directly.
+
+{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-cus-score.png" alt="Clinical Utility Score curve across exposure with the maximizing exposure marked" caption="Each endpoint's curve is scored to a unit-scale utility, and the utilities are combined by weight into one Clinical Utility Score across exposure. The maximizing exposure is the recommended dose — here Max CUS = 0.211 at PK = 1.61. The aggregation is the weighted geometric mean selected in the toggle." >}}
+
+The same framework runs on real trial data, not only on simulated curves.
+Uploading a dataset, the app detects each endpoint's type and fits its own
+exposure-response curve.
+
+{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-cus-upload.png" alt="Uploaded ER dataset summary with detected endpoint types and fitted exposure-response curves for four endpoints" caption="An uploaded dataset of 120 patients with four mixed endpoints — two efficacy (one continuous, one binary) and two safety (one binary, one continuous). Endpoint types are detected from the data, and each endpoint is fitted with its own exposure-response curve before entering the score." >}}
 
 **Designing a PK-BOIN12 trial.**
 
-{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-pkboin-design.png" alt="PK-BOIN12 design panel showing derived decision boundaries and the utility table" caption="The design panel derives the decision boundaries from the target toxicity, and shows the utility table over the four joint efficacy-toxicity outcomes that defines the rank-based desirability score." >}}
+A design is studied end to end: the decision rule is derived, a true
+dose-response scenario sets the ground truth, and operating characteristics over
+many replications show whether the design recovers the right dose.
 
-{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-pkboin-flow.png" alt="PK-BOIN12 dose-assignment decision flow from cohort enrollment to OBD" caption="The dose-assignment logic is made explicit: enroll a cohort, update counts, apply the toxicity and desirability rules within the admissible set, and either stop for safety and futility or continue to the final OBD selection." >}}
+The design panel derives the decision boundaries and the utility table that
+define the rule.
 
-{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-pkboin-oc.png" alt="PK-BOIN12 operating characteristics with selection probability and allocation over replications" caption="Run over many replications, the design reports its operating characteristics: selection probability and mean allocation per dose, correct-OBD selection, overdose exposure, and early-stopping — the numbers a statistician needs to judge a design before using it." >}}
+{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-pkboin-design.png" alt="PK-BOIN12 design panel showing derived decision boundaries and the utility table" caption="The decision boundaries are derived from the target toxicity, and the utility table over the four joint efficacy-toxicity outcomes defines the rank-based desirability score that ranks admissible doses." >}}
+
+To evaluate the design, a true dose-response scenario is specified — the truth
+the design is asked to recover.
+
+{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-pkboin-scenario.png" alt="PK-BOIN12 scenario with per-dose true toxicity, efficacy, and utility and the true MTD and OBD marked" caption="Each dose is given a true toxicity, efficacy, and expected utility, with the true MTD and OBD marked. This is the ground truth against which the design's dose selection is scored." >}}
+
+Run over many replications, the design reports how often it lands on the right
+dose and how it allocates patients.
+
+{{< pf-figure src="/portfolio/oncology-dose-optimization/wt-pkboin-oc.png" alt="PK-BOIN12 operating characteristics with selection probability and allocation over replications" caption="Over many replications, the design reports its operating characteristics: selection probability and mean allocation per dose, correct-OBD selection, overdose exposure, and early-stopping — the numbers a statistician needs to judge a design before using it." >}}
 {{< /pf-section >}}
 
 {{< pf-section num="4" title="Methods" >}}
