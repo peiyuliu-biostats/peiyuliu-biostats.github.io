@@ -44,7 +44,7 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 
 - R/R Shiny, SAS, Python, Julia, MATLAB, Maple, and C++
 
-- CDISC (eCRF, ADaM, SDTM), optimize dose selection (PK-BOIN12, ER-CUS), and sample size calculation (mixed endpoints).
+- CDISC (eCRF, ADaM, SDTM), optimize dose selection (PK-BOIN12, ER-CUS), and sample size calculation.
 
 ### Rshiny Apps
 
