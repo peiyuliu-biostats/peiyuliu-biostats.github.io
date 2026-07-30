@@ -4,6 +4,7 @@ items:
   - name: Clinical Data Trace
     credential: Python · AI agent · CDISC · lineage
     description: Traces any analysis value back through ADaM, SDTM, and raw, and checks the ADaM spec against the SAP.
+    note: First open wakes the demo — give it ~30s.
     image: images/portfolio/application1-coverage.png
     details: portfolio/clinical-data-trace/
     live_label: Open

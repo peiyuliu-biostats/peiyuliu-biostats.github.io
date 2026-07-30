@@ -34,6 +34,9 @@
               <h3 class="portfolio-app__name">{{ .name }}</h3>
               <p class="portfolio-app__credential">{{ .credential }}</p>
               <p class="portfolio-app__description">{{ .description }}</p>
+              {{ with .note }}
+                <p class="portfolio-app__credential portfolio-app__note"><strong>{{ . }}</strong></p>
+              {{ end }}
 
               <div class="portfolio-app__actions" aria-label="{{ .name }} links">
                 <a class="portfolio-action portfolio-action--details" href="{{ .details | relURL }}">

@@ -48,9 +48,9 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 
 ### R Shiny Apps
 
-- [Oncology Dose Optimization: Clinical Utility Score framework, exposure-response modeling, PK-BOIN dose finding, and survival analysis (Click to Open)](https://peiyuliu.shinyapps.io/oncology-cus-pkboin-v1/)
+- [PK-BOIN12/ER-CUS Dose Optimization for Early-Phase Oncology (Click to Open)](https://peiyuliu.shinyapps.io/oncology-pkboin-ERcus/)
 
-- [Clinical Trial Data Standards & Sample Size Suite: CDISC-aligned dataset checks, sample size and power across time-to-event, continuous, and count endpoints (Click to Open)](https://peiyuliu.shinyapps.io/clinical-data-ssize-suite/)
+- [CDISC Checks & Sample Size for Clinical Trials (Click to Open)](https://peiyuliu.shinyapps.io/clinical-data-ssize-suite/)
 
 - [Arboviral Trial Endpoint Comparison: serological biomarker vs. clinical case endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
