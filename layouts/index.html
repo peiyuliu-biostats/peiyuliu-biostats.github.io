@@ -1,4 +1,18 @@
 {{ define "main" }}
+  <style>
+    .home-about-page h3 {
+      font-size: 24px;
+    }
+
+    .home-about-page > ul {
+      padding-left: 40px;
+    }
+
+    .home-about-page > h3:has(+ ul) {
+      margin-left: 40px;
+    }
+  </style>
+
   <div
     class="post {{ with .Site.Params.doNotLoadAnimations }}
       .
