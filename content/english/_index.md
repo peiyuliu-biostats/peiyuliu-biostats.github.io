@@ -38,13 +38,13 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 
 ### Specialty
 
-- Bayesian hierarchical models, missing-data methods (data augmentation and MNAR sensitivity analysis), and mechanistic models (ODEs and identifiability analysis)
+- Bayesian hierarchical models, survival and longitudinal models (RMST, Royston–Parmar, AFT, GEE, and GLMM).
 
-- Survival and longitudinal models (RMST, Cox PH, AFT, GEE, and GLMM); gradient descent, KNN, neural network models, and cross-validation
+- Missing data augmentation/imputation, identifiability analysis, gradient descent, and KNN/neural network.
 
-- R/R Shiny, SAS, Julia, Python, MATLAB, Maple, and C++
+- R/R Shiny, SAS, Python, Julia, MATLAB, Maple, and C++
 
-- CDISC data standards (SDTM, ADaM, and TLG), clinical trial power, and sample size calculation
+- CDISC (eCRF, ADaM, SDTM), optimize dose selection (PK-BOIN12, ER-CUS), and sample size calculation (mixed endpoints).
 
 ### R Shiny Apps
 
