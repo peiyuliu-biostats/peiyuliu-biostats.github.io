@@ -2,22 +2,22 @@ title: Publications
 scholar_url: https://scholar.google.com/citations?user=O6KFoOUAAAAJ&hl=en&authuser=1
 items:
   - author: Liu P
-    coauthors: He S, Rong L, Tang S
-    title: "The effect of control measures on COVID-19 transmission in Italy: Comparison with Guangdong province in China."
-    venue: Infectious Diseases of Poverty, 9:130, 2020.
-    pdf: files/portfolio/liu21.pdf
-    doi: https://doi.org/10.1186/s40249-020-00730-2
+    coauthors: Rong L, Cummings D, Hitchings M
+    title: "Mosquito salivary protein antibodies as efficient endpoints for vector control trials: A mechanistic comparison with clinical and entomological outcomes."
+    venue: Infectious Disease Modelling, 11(4):1368–1386, 2026. Open access.
+    pdf: files/publications/infectious%20modelling.pdf
+    doi: https://doi.org/10.1016/j.idm.2026.04.008
 
   - author: Liu P
-    coauthors: Rong L, Cummings D, Hitchings MDT
-    title: "Mosquito salivary protein antibodies as efficient endpoints for vector control trials: A mechanistic comparison with clinical and entomological outcomes."
-    venue: Under review, 2026.
-    pdf: files/portfolio/m1MSP.pdf
+    coauthors: Rong L, Roy A, Longini I, Cummings D, Hitchings M
+    title: "Practical identifiability and Bayesian inference of seasonal mosquito biting dynamics from cross-sectional serology."
+    venue: Under review.
+    pdf: files/publications/Bayesion%20PIA.pdf
     doi: ""
 
   - author: Liu P
-    coauthors: et al
-    title: CHIKV household transmission modelling.
-    venue: In preparation, 2026.
-    pdf: ""
+    coauthors: Adams L, …, Hitchings M
+    title: "Use of data augmentation in household transmission models to account for missing data."
+    venue: In preparation.
+    pdf: files/publications/HH-anlysis.pdf
     doi: ""
