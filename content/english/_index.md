@@ -39,19 +39,14 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 ### Specialty
 
 - Bayesian hierarchical models, survival and longitudinal models (RMST, Royston–Parmar, AFT, GEE, and GLMM).
-
 - Missing data augmentation/imputation, identifiability analysis, gradient descent, and KNN/neural network.
-
 - R/R Shiny, SAS, Python, Julia, MATLAB, Maple, and C++
-
 - CDISC (eCRF, ADaM, SDTM), optimize dose selection (PK-BOIN12, ER-CUS), and sample size calculation.
 
 ### Rshiny Apps
 
 - [PK-BOIN12/ER-CUS/STEIN Dose Optimization for Early-Phase Oncology/Hemotology (Click to Open)](https://peiyuliu.shinyapps.io/oncology-pkboin-ERcus/)
-
 - [CDISC Checks & Sample Size Calculation with mixed endpoints for Clinical Trials (Click to Open)](https://peiyuliu.shinyapps.io/clinical-data-ssize-suite/)
-
 - [Arboviral Trial Endpoint Comparison: serological biomarker vs. clinical case endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
 <!-- - [SIR Models Estimation: Least Squares vs. Bootstrap vs. MCMC (Click to Open)](https://peiyuliu.shinyapps.io/sir-estimation-comparison/) -->
