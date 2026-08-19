@@ -26,5 +26,5 @@ items:
     image: portfolio/oncology-dose-optimization/cover.png
     details: portfolio/oncology-dose-optimization/
     live_label: Open
-    live_url: https://peiyuliu.shinyapps.io/ontology-cus-pkboin-v1/
-    code_url: https://github.com/peiyuliu-biostats/ontology-cus-pkboin-v1
+    live_url: https://peiyuliu.shinyapps.io/oncology-pkboin-ERcus/
+    code_url: https://github.com/peiyuliu-biostats/Oncology-Early-Phase-Adaptive-Dose-Optimization
