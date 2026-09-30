@@ -41,7 +41,7 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 - Bayesian hierarchical models, survival and longitudinal models (RMST, Royston–Parmar, AFT, GEE, and GLMM).
 - Missing data augmentation/imputation, identifiability analysis, gradient descent, and KNN/neural network.
 - R/R Shiny, SAS, Python, Julia, MATLAB, Maple, and C++
-- TITE-/PK-BOIN12 suite
+- CDISC (eCRF, ADaM, SDTM), optimize dose selection (BOIN12 suite , ER-CUS), and sample size calculation.
 
 ### Selected Rshinys
 
