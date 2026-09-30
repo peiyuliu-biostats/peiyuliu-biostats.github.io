@@ -46,7 +46,7 @@ I'm a **biostatistician** and **Biostatistics Ph.D. Candidate** at the Universit
 ### Selected Applications
 
 - [TITE-/PK-BOIN12/ER-CUS Adaptive Dose Optimization for Early-Phase Oncology/Hemotology (Click to Open)](https://peiyuliu.shinyapps.io/oncology-pkboin-ERcus/)
-- [Clinical Data Trace: End-to-End CDISC Lineage from Analysis Values through ADaM and SDTM to Raw Data (Click to Open)](https://agent-cdisc-datasets-trace.streamlit.app/)
+- [Clinical Data Trace: End-to-End CDISC Lineage across ADaM, SDTM, and Raw Data (Click to Open)](https://agent-cdisc-datasets-trace.streamlit.app/)
 - [CDISC Checks & Sample Size Calculation with mixed endpoints for Clinical Trials (Click to Open)](https://peiyuliu.shinyapps.io/clinical-data-ssize-suite/)
 - [Arboviral Trial Endpoint Comparison: serological biomarker vs. clinical case endpoints (Click to Open)](https://peiyuliu.shinyapps.io/anpp-trial-comparison/)
 
